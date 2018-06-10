@@ -20,7 +20,6 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
     @IBOutlet weak var carDescField: UITextView!
     
     //variables
-//    var singleCar : Car = Car(name: "" , model: "" , year: "" , desc: "" , img: "")
     var singleCar : Car?
     var delegate : updateCarListTableProtocol?
     
@@ -34,14 +33,10 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
             carYearField.text = car.year
             carDescField.text = car.desc
         }
-
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
@@ -50,8 +45,6 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
     
     func imagePickerController(_ picker : UIImagePickerController , didFinishPickingMediaWithInfo info: [String : Any]){
 
-//        let str : String = info[UIImagePickerControllerPHAsset] as! String
-//        print(str)
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         carImgView.image = image
         dismiss(animated: true, completion: nil)
@@ -67,20 +60,26 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
     }
   
     @IBAction func saveCarDetails(_ sender: Any) {
+        
+        let userDef = UserDefaults.standard;
+        let userId: String = userDef.value(forKey: "userId") as! String;
+        
+        let newSingleCar = Car(carNameVal: carNameField.text!,
+                               carModelVal: carModelField.text!,
+                               carYearVal: carYearField.text!,
+                               carDescVal: carDescField.text,
+                               carImageVal: "car_image.png",
+                               carOwnerVal: userId)
+        
         if let carvar = singleCar {
-            carvar.name = carNameField.text!
-            carvar.model = carModelField.text!
-            carvar.desc = carDescField.text!
-            carvar.year = carYearField.text!
-        }else{
-            let newSingleCar = Car(carNameVal: carNameField.text! ,
-                                   carModelVal: carModelField.text! ,
-                                   carYearVal: carYearField.text! ,
-                                   carDescVal: carYearField.text! ,
-                                   carImageVal: "car_image.jpg")
+            newSingleCar.id = carvar.id
             
+            //update car value in db
+            CarDAO.getInstance().updateCar(newCarData: newSingleCar)
+            
+        } else{
+            CarDAO.getInstance().insertCar(carObj: newSingleCar)
             delegate?.updateTableValues(newCar: newSingleCar)
-            
         }
         
         self.navigationController?.popViewController(animated: true)

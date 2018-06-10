@@ -8,6 +8,7 @@
 
 import UIKit
 import DropDown
+import Toast_Swift
 
 class UserProfileController: UITableViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -19,33 +20,67 @@ class UserProfileController: UITableViewController, UINavigationControllerDelega
     @IBOutlet weak var genderLbl: UILabel!
     @IBOutlet weak var chooserOutlt: UISwitch!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var saveChangesBtn: UIButton!
+    
+    
+    let dropDown = DropDown()
+    var imagePicker = UIImagePickerController()
+    var user : User?
+    let userInstance = UserDAO.getInstance();
+    
+    
     @IBAction func genderAction(_ sender: UIButton) {
         dropDown.show()
     }
+    
     @IBAction func forgetAction(_ sender: UIButton) {
         
     }
+    
     @IBAction func chooserAction(_ sender: Any) {
         if chooserOutlt.isOn {
             chooserOutlt.setOn(false, animated:true)
+            saveChangesBtn.isHidden = true
+            
         } else {
             chooserOutlt.setOn(true, animated:true)
+            saveChangesBtn.isHidden = false
         }
     }
+    
     @IBAction func btnClicked(_: UIButton) {
         showPicker()
     }
     
-    let dropDown = DropDown()
-    var imagePicker = UIImagePickerController()
-
+    @IBAction func editUserData(_ sender: UIButton) {
+        
+        let userTemp = User();
+        userTemp.name = nameTxt.text!
+        userTemp.email = emailTxt.text!
+        userTemp.mobile = mobileTxt.text!
+        userTemp.gender = genderLbl.text!
+        userTemp.address = addressTxt.text!
+        userTemp.id = (user?.id)!
+        
+        userInstance.updateUserData(newUserData: userTemp);
+        self.view.makeToast("Your Info has been Updated Successfully", duration: 3.0, position: .center);
+        chooserOutlt.setOn(false, animated:true);
+        saveChangesBtn.isHidden = true;
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveChangesBtn.isHidden = true
         dropDownSetUp()
         chooserSetUp()
+        setUpUserData()
         closeEditing()
     }
-   
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //imageView.image = UIImage(data: user?.profilePic as! Data);
+        setUpUserData()
+    }
 }
 
 // MARK: - image picker methods
@@ -56,35 +91,41 @@ extension UserProfileController{
             print("Button capture")
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum;
-            imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = true
             present(imagePicker, animated: true, completion: nil)
         }
     }
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        print("choosed image")
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage //2
-        imageView.image=chosenImage
+        print("choosed image");
+        let chosenImage: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage; //2
+        imageView.image = chosenImage;
+        let imgData: Data = UIImagePNGRepresentation(chosenImage)! as Data;
+        userInstance.saveProfilePic(imgData: imgData, userId: (user?.id)!);
         self.dismiss(animated: true, completion: { () -> Void in
-            
-        })
-        
+        });
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
 }
 
 // MARK: - Table view data source
-extension UserProfileController{
+extension UserProfileController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 7
+    }
+    
+    func setUpUserData() {
+        let defaults = UserDefaults.standard
+        let userId = defaults.value(forKey: "userId")
+        user = UserDAO.getInstance().getUserByID(userId: userId as! String)
+        imageView.image = UIImage(data: user?.profilePic as! Data);
     }
 }
 // MARK: - Drop Down Methods
@@ -124,7 +165,14 @@ extension UserProfileController{
         self.emailTxt.isUserInteractionEnabled = true
         self.genderButtonOutlt.isEnabled = true
     }
+    
     func closeEditing() {
+        self.nameTxt.text = user?.name
+        self.addressTxt.text = user?.address
+        self.mobileTxt.text = user?.mobile
+        self.emailTxt.text = user?.email
+        self.genderLbl.text=user?.gender
+        
         self.nameTxt.isUserInteractionEnabled = false
         self.addressTxt.isUserInteractionEnabled = false
         self.mobileTxt.isUserInteractionEnabled = false

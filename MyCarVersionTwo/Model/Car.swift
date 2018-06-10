@@ -17,12 +17,13 @@ class Car: Object {
     @objc dynamic var year = "";
     @objc dynamic var desc = "";
     @objc dynamic var image = "";
+    @objc dynamic var owner = ""
     
     override static func primaryKey() -> String? {
         return "id";
     }
     
-    convenience init (carNameVal: String, carModelVal: String, carYearVal: String, carDescVal: String, carImageVal: String) {
+    convenience init (carNameVal: String, carModelVal: String, carYearVal: String, carDescVal: String, carImageVal: String , carOwnerVal: String) {
         
         self.init();
         self.name = carNameVal;
@@ -30,5 +31,6 @@ class Car: Object {
         self.year = carYearVal;
         self.desc = carDescVal;
         self.image = carImageVal;
+        self.owner = carOwnerVal;
     }
 }

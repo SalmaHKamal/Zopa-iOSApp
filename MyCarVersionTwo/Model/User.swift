@@ -10,14 +10,14 @@ import UIKit
 import RealmSwift
 
 class User: Object {
-
     @objc dynamic var id = UUID().uuidString;
     @objc dynamic var name = "";
     @objc dynamic var email = "";
     @objc dynamic var password = "";
-    @objc dynamic var gender = false;
+    @objc dynamic var gender = "";
     @objc dynamic var mobile = "";
-    @objc dynamic var profilePic = "";
+    @objc dynamic var address = "";
+    @objc dynamic var profilePic : Data = Data();
     var cars = List <Car>();
     var prevCarWashings = List <CarWash>();
     var prevRefuels = List <Refuel>();
@@ -27,7 +27,7 @@ class User: Object {
         return "id";
     }
     
-    convenience init (userNameVal: String, userEmailVal: String, userPasswordVal: String, userGenderVal: Bool, userMobVal: String, userPicVal: String) {
+    convenience init (userNameVal: String, userEmailVal: String, userPasswordVal: String, userGenderVal: String, userMobVal: String , userPicVal : Data, address : String) {
         
         self.init();
         self.name = userNameVal;
@@ -35,6 +35,9 @@ class User: Object {
         self.password = userPasswordVal;
         self.gender = userGenderVal;
         self.mobile = userMobVal;
-        self.profilePic = userPicVal;
+        self.profilePic = userPicVal
+        self.address = address
+        
     }
+    
 }
