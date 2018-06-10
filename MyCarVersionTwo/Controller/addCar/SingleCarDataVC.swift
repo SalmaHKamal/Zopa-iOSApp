@@ -24,19 +24,21 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
     var delegate : updateCarListTableProtocol?
     
     override func viewWillAppear(_ animated: Bool) {
+        
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         if let car = singleCar {
             
-            let img = UIImage(named : (car.image))
+            let img = UIImage(data : (car.image))
             carImgView.image = img
             carNameField.text = car.name
             carModelField.text = car.model
             carYearField.text = car.year
             carDescField.text = car.desc
         }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
@@ -46,7 +48,8 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
     func imagePickerController(_ picker : UIImagePickerController , didFinishPickingMediaWithInfo info: [String : Any]){
 
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        carImgView.image = image
+        //singleCar?.image = UIImagePNGRepresentation(image)!
+        carImgView.image =  image //UIImage(data:(singleCar?.image)!)
         dismiss(animated: true, completion: nil)
     }
 
@@ -68,9 +71,9 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
                                carModelVal: carModelField.text!,
                                carYearVal: carYearField.text!,
                                carDescVal: carDescField.text,
-                               carImageVal: "car_image.png",
+                               carImageVal: UIImagePNGRepresentation(carImgView.image!)!,
                                carOwnerVal: userId)
-        
+        https://github.com/SalmaHKamal/Zopa-iOSApp
         if let carvar = singleCar {
             newSingleCar.id = carvar.id
             
