@@ -4,6 +4,7 @@ PODS:
   - FaceAware (1.2.0)
   - FCAlertView (1.4.0)
   - Floaty (3.0.1)
+  - InteractiveSideMenu (2.3)
   - MultilineTextField (0.2.2)
   - NVActivityIndicatorView (4.2.1):
     - NVActivityIndicatorView/Presenter (= 4.2.1)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - FaceAware
   - FCAlertView
   - Floaty (~> 3.0.0)
+  - InteractiveSideMenu
   - MultilineTextField
   - NVActivityIndicatorView
   - RAMPaperSwitch
@@ -41,6 +43,7 @@ SPEC REPOS:
     - FaceAware
     - FCAlertView
     - Floaty
+    - InteractiveSideMenu
     - MultilineTextField
     - NVActivityIndicatorView
     - RAMPaperSwitch
@@ -57,6 +60,7 @@ SPEC CHECKSUMS:
   FaceAware: 421436f9d16aacdb26ffcf8e5a39a1dd68630395
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   Floaty: bb7a353deee9ddcc14c584ca9c538efdc19669f2
+  InteractiveSideMenu: d503a508c6d62a4d5d4372d9fb9e1795637a8e45
   MultilineTextField: 4fe1fbdd32b97c19712b2988f4ae2f73002821b9
   NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
   RAMPaperSwitch: ef08af0400a040c9850e09253280deb77510becb
@@ -67,6 +71,6 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   UIDropDown: 22e6e3e22d419884c8f21d95ea9be36aac905ed4
 
-PODFILE CHECKSUM: 47965bd21c42382bbb012b911e1c581463da4d1b
+PODFILE CHECKSUM: 2a4473a2099c45d9ff6ba84a780cf46ea2ad4a4a
 
 COCOAPODS: 1.5.3

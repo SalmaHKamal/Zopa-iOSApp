@@ -18,5 +18,5 @@ target 'MyCarVersionTwo' do
   pod 'RealmSwift'
   pod 'NVActivityIndicatorView'
   pod 'Dropdowns'
-
+  pod 'InteractiveSideMenu'
 end

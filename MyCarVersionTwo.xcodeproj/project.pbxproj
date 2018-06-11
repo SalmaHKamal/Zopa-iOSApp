@@ -10,6 +10,7 @@
 		0436B25F20BEAC17008D904B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436B25E20BEAC17008D904B /* LoginViewController.swift */; };
 		04955AA720CD3C22007AC83F /* MaintViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04955AA620CD3C22007AC83F /* MaintViewController.swift */; };
 		04955AA920CD4A5F007AC83F /* OilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04955AA820CD4A5F007AC83F /* OilViewController.swift */; };
+		04B857C320CE62BE00F51C56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B857C220CE62BE00F51C56 /* ViewController.swift */; };
 		04B91B8320BECBD2003F60BB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B91B8220BECBD2003F60BB /* WebViewController.swift */; };
 		04DE1A5E20C959670019E416 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE1A5D20C959670019E416 /* SplashViewController.swift */; };
 		1621F03720BAA74200CC4C9B /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621F03620BAA74200CC4C9B /* PopupVC.swift */; };
@@ -54,6 +55,7 @@
 		0436B25E20BEAC17008D904B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		04955AA620CD3C22007AC83F /* MaintViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaintViewController.swift; sourceTree = "<group>"; };
 		04955AA820CD4A5F007AC83F /* OilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OilViewController.swift; sourceTree = "<group>"; };
+		04B857C220CE62BE00F51C56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04B91B8220BECBD2003F60BB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		04DE1A5D20C959670019E416 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		1621F03620BAA74200CC4C9B /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
@@ -116,7 +118,6 @@
 				0436B25E20BEAC17008D904B /* LoginViewController.swift */,
 				16BDC2EC20C6AAF200374774 /* registerTVC.swift */,
 				166EE39520C822E900F9BA12 /* Validator.swift */,
-				16D5302D20B8632900BCA4BD /* User */,
 			);
 			path = "Login&Register";
 			sourceTree = "<group>";
@@ -125,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				04B91B8220BECBD2003F60BB /* WebViewController.swift */,
+				04B857C220CE62BE00F51C56 /* ViewController.swift */,
 			);
 			path = webView;
 			sourceTree = "<group>";
@@ -187,6 +189,7 @@
 		16289D8120B4162E00970D11 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				16D5302D20B8632900BCA4BD /* User */,
 				04DE1A5C20C959400019E416 /* spalsh */,
 				745927D920BC26420060D923 /* sideMenu */,
 				743E1AC320C405CF00CFDF57 /* HomeViewController.swift */,
@@ -403,6 +406,7 @@
 				"${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/FaceAware/FaceAware.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/InteractiveSideMenu/InteractiveSideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/MultilineTextField/MultilineTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMPaperSwitch/RAMPaperSwitch.framework",
@@ -420,6 +424,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FCAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaceAware.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InteractiveSideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultilineTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMPaperSwitch.framework",
@@ -456,6 +461,7 @@
 				7413386D20C0218C0095D8DA /* OilDAO.swift in Sources */,
 				7413388520C040200095D8DA /* Car.swift in Sources */,
 				04955AA720CD3C22007AC83F /* MaintViewController.swift in Sources */,
+				04B857C320CE62BE00F51C56 /* ViewController.swift in Sources */,
 				16653B3620B0155800765363 /* CarTrackingCell.swift in Sources */,
 				16D5302F20B8637B00BCA4BD /* UserProfileController.swift in Sources */,
 				16653B3D20B169F700765363 /* CarTItemDetailsViewController.swift in Sources */,
