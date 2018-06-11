@@ -29,4 +29,6 @@ class OilDAO: NSObject {
         }
         print("new Oil has been inserted into DB");
     }
+    
+    //func getAllOilData(carId)
 }
