@@ -60,7 +60,7 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
         
         let detailsVc : SingleCarDataVC = storyboard?.instantiateViewController(withIdentifier:"SingleCarData") as! SingleCarDataVC
         
-        detailsVc.singleCar?.image = "car_image.jpg"
+        detailsVc.singleCar?.image = UIImagePNGRepresentation(UIImage(named : "car_image.jpg")!)!
         detailsVc.singleCar?.name = ""
         detailsVc.singleCar?.model = ""
         detailsVc.singleCar?.year = ""
@@ -87,7 +87,7 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
         // get subView and add it on a cell
         let subView = CardViewController.init(frame: CGRect(x:0 , y:0 , width: 351 , height : 200))
         subView.carNameLabel.text = listOfCars![indexPath.row].name
-        let img = UIImage(named : (listOfCars![indexPath.row].image))
+        let img = UIImage(data : (listOfCars![indexPath.row].image))
         subView.carImageView.image = img
         subView.closeBtn.addTarget(self, action: #selector(deleteCar(_ :)), for: .touchUpInside)
         Cell.contentView.addSubview(subView)
@@ -126,8 +126,6 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
     }
 
     func updateTableValues(newCar: Car) {
-        
-        //save new car in db
         
         listOfCars?.append(newCar)
         

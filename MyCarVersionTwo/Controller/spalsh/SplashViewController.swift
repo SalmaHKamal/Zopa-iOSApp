@@ -20,9 +20,9 @@ class SplashViewController: UIViewController {
         indicatorView.startAnimating()
         
         if checkUser() != nil && checkUser() ==  true {
-            perform(#selector(showHome), with: nil, afterDelay: 5)
+            perform(#selector(showHome), with: nil, afterDelay: 2)
         }else{
-            perform(#selector(showLogin), with: nil, afterDelay: 5)
+            perform(#selector(showLogin), with: nil, afterDelay: 2)
         }
     }
     func checkUser() -> Bool?{
