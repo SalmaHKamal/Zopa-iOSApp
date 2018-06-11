@@ -20,6 +20,10 @@ class registerTVC: UITableViewController {
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var genderLbl: UILabel!
     @IBOutlet weak var confiemPassTxt: UITextField!
+    @IBOutlet var registerTableView: UITableView!
+    @IBOutlet weak var registerBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
+    
     @IBAction func genderAction(_ sender: Any) {
         dropDown.show()
     }
@@ -28,20 +32,41 @@ class registerTVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        dropDownSetUp()
+        dropDownSetUp();
+        
+        registerBtn.layer.cornerRadius = 5;
+        cancelBtn.layer.cornerRadius = 5;
+        
+        /*let img = UIImage(named: "bg");
+        let imageViewBackground = UIImageView(image: img);
+        self.registerTableView.backgroundView = imageViewBackground;*/
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 1;
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 8
+        return 9;
     }
+    
+    /*override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let myCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath);
+        myCell.layer.backgroundColor = UIColor.clear.cgColor;
+        let img = UIImage(named: "bg");
+        myCell.backgroundView = UIImageView(image: img);
+        return myCell;
+    }*/
 
-
+    
+    @IBAction func cancelAction(_ sender: UIButton) {
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "loginVC");
+        self.present(loginVC!, animated: true, completion: nil);
+    }
+    
     @IBAction func registerBtn(_ sender: Any) {
         
         guard let username = nameTxt.text?.trimmingCharacters(in: .whitespaces) , !username.isEmpty else {
@@ -71,7 +96,6 @@ class registerTVC: UITableViewController {
             self.view.makeToast("Enter valid Email", duration: 3.0, position: .bottom)
             return
         }
-        
         
         guard let gender = genderLbl.text?.trimmingCharacters(in: .whitespaces) , !gender.isEmpty else {
             self.view.makeToast("select gender", duration: 3.0, position: .bottom)
