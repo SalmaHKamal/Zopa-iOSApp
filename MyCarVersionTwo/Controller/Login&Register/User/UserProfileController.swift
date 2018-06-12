@@ -100,8 +100,19 @@ extension UserProfileController{
         print("choosed image");
         let chosenImage: UIImage = info[UIImagePickerControllerOriginalImage] as! UIImage; //2
         imageView.image = chosenImage;
-        let imgData: Data = UIImagePNGRepresentation(chosenImage)! as Data;
-        userInstance.saveProfilePic(imgData: imgData, userId: (user?.id)!);
+        
+        var imgData:Data?
+        let assetPath = info[UIImagePickerControllerReferenceURL] as! NSURL;
+        if (assetPath.absoluteString?.hasSuffix("JPG"))! {
+            print("JPG");
+            imgData = UIImageJPEGRepresentation(chosenImage, 1.0);
+        }
+        else if (assetPath.absoluteString?.hasSuffix("PNG"))! {
+            print("PNG");
+            imgData = UIImagePNGRepresentation(chosenImage)!;
+        }
+    
+        userInstance.saveProfilePic(imgData: imgData!, userId: (user?.id)!);
         self.dismiss(animated: true, completion: { () -> Void in
         });
     }
@@ -125,7 +136,7 @@ extension UserProfileController {
         let defaults = UserDefaults.standard
         let userId = defaults.value(forKey: "userId")
         user = UserDAO.getInstance().getUserByID(userId: userId as! String)
-//        imageView.image = UIImage(data: (user?.profilePic)!);
+        imageView.image = UIImage(data: (user?.profilePic)!);
     }
 }
 // MARK: - Drop Down Methods
@@ -172,6 +183,8 @@ extension UserProfileController{
         self.mobileTxt.text = user?.mobile
         self.emailTxt.text = user?.email
         self.genderLbl.text=user?.gender
+        //let img = UIImage(data: (user?.profilePic)!);
+        //self.imageView.image = img;
         
         self.nameTxt.isUserInteractionEnabled = false
         self.addressTxt.isUserInteractionEnabled = false

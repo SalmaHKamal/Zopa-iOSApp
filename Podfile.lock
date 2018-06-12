@@ -34,6 +34,23 @@ DEPENDENCIES:
   - Toast-Swift (~> 3.0.1)
   - UIDropDown
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DropDown
+    - Dropdowns
+    - FaceAware
+    - FCAlertView
+    - Floaty
+    - MultilineTextField
+    - NVActivityIndicatorView
+    - RAMPaperSwitch
+    - Realm
+    - RealmSwift
+    - SimpleAlert
+    - TextFieldEffects
+    - Toast-Swift
+    - UIDropDown
+
 SPEC CHECKSUMS:
   DropDown: 20499c7b2731b0d21609af924e47c7677a2be50d
   Dropdowns: 9dd32d9ac9cc59e56ae093b588d35477abde32d2
