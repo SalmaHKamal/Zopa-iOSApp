@@ -35,16 +35,6 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
-        //setTableBgImage()
-        
-        //listOfOilData = [Oil]()
-        
-        
-//        let results : [Oil] = OilDAO.getInstance()
-//        listOfOilData = results
-//        self.myTableView.reloadData()
-
     }
     
     func getloggedInUserId() -> String {
@@ -72,7 +62,9 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
     func addFloatingBtn(){
         floatingButton.handler = {
             button in
-            print("add new car wash btn clicked");
+            print("add new oil btn clicked");
+            let oilDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "oilDetailsId") as! OilDetailsViewController;
+            self.navigationController?.pushViewController(oilDetailsVC, animated: true);
         }
         floatingButton.isScrollView = true;
         floatingButton.buttonColor = UIColor.purple;
@@ -81,18 +73,6 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
     
     func openOilDetailsVC(){
         
-//        let oilDetailsVc = storyboard?.instantiateViewController(withIdentifier:"oilDetails") as! OilDetailsViewController
-//
-//        oilDetailsVc.singleCar?.image = UIImagePNGRepresentation(UIImage(named : "car_image.jpg")!)!
-//        oilDetailsVc.singleCar?.name = ""
-//        oilDetailsVc.singleCar?.model = ""
-//        oilDetailsVc.singleCar?.year = ""
-//        oilDetailsVc.singleCar?.desc = ""
-//
-//        oilDetailsVc.delegate = self
-//
-//        self.navigationController?.pushViewController(detailsVc, animated: true)
-//
     }
     
 }
@@ -119,8 +99,7 @@ extension OilViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let oilDetailsVC = storyboard?.instantiateViewController(withIdentifier: "oilDetails") as! OilDetailsViewController
-        
+        let oilDetailsVC = storyboard?.instantiateViewController(withIdentifier: "oilDetailsId") as! OilDetailsViewController
         self.navigationController?.pushViewController(oilDetailsVC, animated: true)
     }
 }

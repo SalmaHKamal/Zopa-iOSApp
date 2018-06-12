@@ -37,6 +37,8 @@
 		16A4A08320BB3CA500246A60 /* CarCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A4A08220BB3CA500246A60 /* CarCardVC.swift */; };
 		16BDC2ED20C6AAF200374774 /* registerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BDC2EC20C6AAF200374774 /* registerTVC.swift */; };
 		16D5302F20B8637B00BCA4BD /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5302E20B8637B00BCA4BD /* UserProfileController.swift */; };
+		7411241620D0034200271DC5 /* CarWashDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411241520D0034200271DC5 /* CarWashDetailsViewController.swift */; };
+		7411241820D0035800271DC5 /* RefuelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411241720D0035800271DC5 /* RefuelDetailsViewController.swift */; };
 		7413386B20C0217C0095D8DA /* CarDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7413386A20C0217C0095D8DA /* CarDAO.swift */; };
 		7413386D20C0218C0095D8DA /* OilDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7413386C20C0218C0095D8DA /* OilDAO.swift */; };
 		7413386F20C021DC0095D8DA /* RefuelDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7413386E20C021DC0095D8DA /* RefuelDAO.swift */; };
@@ -87,6 +89,8 @@
 		16BDC2EC20C6AAF200374774 /* registerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerTVC.swift; sourceTree = "<group>"; };
 		16D5302E20B8637B00BCA4BD /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		4E3C5372C003FD0AF90BF475 /* Pods-MyCarVersionTwo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCarVersionTwo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCarVersionTwo/Pods-MyCarVersionTwo.release.xcconfig"; sourceTree = "<group>"; };
+		7411241520D0034200271DC5 /* CarWashDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashDetailsViewController.swift; sourceTree = "<group>"; };
+		7411241720D0035800271DC5 /* RefuelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelDetailsViewController.swift; sourceTree = "<group>"; };
 		7413386A20C0217C0095D8DA /* CarDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDAO.swift; sourceTree = "<group>"; };
 		7413386C20C0218C0095D8DA /* OilDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OilDAO.swift; sourceTree = "<group>"; };
 		7413386E20C021DC0095D8DA /* RefuelDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelDAO.swift; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 				1622602020CE1FCC00A1BCB0 /* OilDetailsViewController.swift */,
 				74B87CDA20CFDA2600F8936E /* WashViewController.swift */,
 				74B87CDC20CFDFCC00F8936E /* RefuelViewController.swift */,
+				7411241520D0034200271DC5 /* CarWashDetailsViewController.swift */,
+				7411241720D0035800271DC5 /* RefuelDetailsViewController.swift */,
 			);
 			path = "Car Tracking";
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 				7413387120C021EB0095D8DA /* CarWashDAO.swift in Sources */,
 				7413388120C040090095D8DA /* Refuel.swift in Sources */,
 				04955AA920CD4A5F007AC83F /* OilViewController.swift in Sources */,
+				7411241620D0034200271DC5 /* CarWashDetailsViewController.swift in Sources */,
 				166EE39620C822E900F9BA12 /* Validator.swift in Sources */,
 				1636ED2220B8F2FC00CFA5B7 /* updateCarListTableProtocol.swift in Sources */,
 				16653B2D20B0098500765363 /* cardViewDesign.swift in Sources */,
@@ -472,6 +479,7 @@
 				16653B3620B0155800765363 /* CarTrackingCell.swift in Sources */,
 				16D5302F20B8637B00BCA4BD /* UserProfileController.swift in Sources */,
 				16653B3D20B169F700765363 /* CarTItemDetailsViewController.swift in Sources */,
+				7411241820D0035800271DC5 /* RefuelDetailsViewController.swift in Sources */,
 				743E1AC420C405CF00CFDF57 /* HomeViewController.swift in Sources */,
 				1650EE0420B4524000C830FA /* CardViewController.swift in Sources */,
 				1626142D20B7A4D4000E54F6 /* SingleCarDataVC.swift in Sources */,

@@ -21,9 +21,9 @@ class OilDetailsViewController: UIViewController {
         
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "save", style: UIBarButtonItemStyle.done, target: self, action: #selector(save)), animated: true)
 
-        displayCarMenu()
-        getAllCarsForMenu()
-        displayAllCarsMenu()
+        //displayCarMenu()
+        //getAllCarsForMenu()
+        //displayAllCarsMenu()
         
         
     }

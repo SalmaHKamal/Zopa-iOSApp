@@ -25,6 +25,8 @@ class WashViewController: UIViewController , UITableViewDelegate , UITableViewDa
         floatingButton.handler = {
             button in
             print("add new car wash btn clicked");
+            let carWashDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "carWashDetailsId") as! CarWashDetailsViewController;
+            self.navigationController?.pushViewController(carWashDetailsVC, animated: true);
         }
         floatingButton.isScrollView = true;
         floatingButton.buttonColor = UIColor.purple;
@@ -48,8 +50,7 @@ extension WashViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let oilDetailsVC = storyboard?.instantiateViewController(withIdentifier: "oilDetails") as! OilDetailsViewController
-        
-        self.navigationController?.pushViewController(oilDetailsVC, animated: true)
+        let carWashDetailsVC = storyboard?.instantiateViewController(withIdentifier: "carWashDetailsId") as! CarWashDetailsViewController;
+        self.navigationController?.pushViewController(carWashDetailsVC, animated: true);
     }
 }
