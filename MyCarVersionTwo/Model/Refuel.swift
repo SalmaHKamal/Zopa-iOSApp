@@ -11,13 +11,13 @@ import RealmSwift
 
 class Refuel: Object {
 
-    @objc dynamic var type = Date();
+    @objc dynamic var type = "";
     @objc dynamic var date = Date();
     @objc dynamic var price = 0.0;
     @objc dynamic var place = "";
     @objc dynamic var extraNotes = "";
     
-    convenience init (refuelingTypeVal: Date, refuelingDateVal: Date, refuelingPriceVal: Double, refuelingPlaceVal: String, extraNotesVal: String) {
+    convenience init (refuelingTypeVal: String, refuelingDateVal: Date, refuelingPriceVal: Double, refuelingPlaceVal: String, extraNotesVal: String) {
         
         self.init();
         self.type = refuelingTypeVal;

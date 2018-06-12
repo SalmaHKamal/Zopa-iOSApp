@@ -14,6 +14,7 @@
 		04B91B8320BECBD2003F60BB /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B91B8220BECBD2003F60BB /* WebViewController.swift */; };
 		04DE1A5E20C959670019E416 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE1A5D20C959670019E416 /* SplashViewController.swift */; };
 		1621F03720BAA74200CC4C9B /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1621F03620BAA74200CC4C9B /* PopupVC.swift */; };
+		1622602120CE1FCC00A1BCB0 /* OilDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1622602020CE1FCC00A1BCB0 /* OilDetailsViewController.swift */; };
 		1626142D20B7A4D4000E54F6 /* SingleCarDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1626142C20B7A4D4000E54F6 /* SingleCarDataVC.swift */; };
 		162856AD20B007FD009124CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162856AC20B007FD009124CC /* AppDelegate.swift */; };
 		162856B220B007FE009124CC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 162856B020B007FE009124CC /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		04B91B8220BECBD2003F60BB /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		04DE1A5D20C959670019E416 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		1621F03620BAA74200CC4C9B /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
+		1622602020CE1FCC00A1BCB0 /* OilDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OilDetailsViewController.swift; sourceTree = "<group>"; };
 		1626142C20B7A4D4000E54F6 /* SingleCarDataVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCarDataVC.swift; sourceTree = "<group>"; };
 		162856A920B007FD009124CC /* MyCarVersionTwo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCarVersionTwo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		162856AC20B007FD009124CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				1621F03620BAA74200CC4C9B /* PopupVC.swift */,
 				04955AA620CD3C22007AC83F /* MaintViewController.swift */,
 				04955AA820CD4A5F007AC83F /* OilViewController.swift */,
+				1622602020CE1FCC00A1BCB0 /* OilDetailsViewController.swift */,
 			);
 			path = "Car Tracking";
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 			files = (
 				04DE1A5E20C959670019E416 /* SplashViewController.swift in Sources */,
 				7413388320C040120095D8DA /* User.swift in Sources */,
+				1622602120CE1FCC00A1BCB0 /* OilDetailsViewController.swift in Sources */,
 				162856AD20B007FD009124CC /* AppDelegate.swift in Sources */,
 				7413387120C021EB0095D8DA /* CarWashDAO.swift in Sources */,
 				7413388120C040090095D8DA /* Refuel.swift in Sources */,

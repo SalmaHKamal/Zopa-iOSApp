@@ -78,7 +78,7 @@ class UserProfileController: UITableViewController, UINavigationControllerDelega
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //imageView.image = UIImage(data: user?.profilePic as! Data);
+        //salma
         setUpUserData()
     }
 }
@@ -125,7 +125,7 @@ extension UserProfileController {
         let defaults = UserDefaults.standard
         let userId = defaults.value(forKey: "userId")
         user = UserDAO.getInstance().getUserByID(userId: userId as! String)
-        imageView.image = UIImage(data: user?.profilePic as! Data);
+//        imageView.image = UIImage(data: (user?.profilePic)!);
     }
 }
 // MARK: - Drop Down Methods

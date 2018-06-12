@@ -6,9 +6,9 @@ PODS:
   - Floaty (3.0.1)
   - InteractiveSideMenu (2.3)
   - MultilineTextField (0.2.2)
-  - NVActivityIndicatorView (4.2.1):
-    - NVActivityIndicatorView/Presenter (= 4.2.1)
-  - NVActivityIndicatorView/Presenter (4.2.1)
+  - NVActivityIndicatorView (4.1.1):
+    - NVActivityIndicatorView/Presenter (= 4.1.1)
+  - NVActivityIndicatorView/Presenter (4.1.1)
   - RAMPaperSwitch (2.1.0)
   - Realm (3.1.1):
     - Realm/Headers (= 3.1.1)
@@ -62,7 +62,7 @@ SPEC CHECKSUMS:
   Floaty: bb7a353deee9ddcc14c584ca9c538efdc19669f2
   InteractiveSideMenu: d503a508c6d62a4d5d4372d9fb9e1795637a8e45
   MultilineTextField: 4fe1fbdd32b97c19712b2988f4ae2f73002821b9
-  NVActivityIndicatorView: 8068ba3ad39cb44cbaab25d89ff2546b3f092681
+  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   RAMPaperSwitch: ef08af0400a040c9850e09253280deb77510becb
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
   RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b

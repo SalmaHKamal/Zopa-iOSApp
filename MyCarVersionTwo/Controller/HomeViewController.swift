@@ -17,18 +17,45 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var historyBtn: UIButton!
     @IBOutlet weak var settingsBtn: UIButton!
     @IBOutlet weak var aboutBtn: UIButton!
+    @IBOutlet weak var logoutBtn: UIButton!
     @IBOutlet weak var sideMenuConstraint: NSLayoutConstraint!
     
     var isSlideMenuHidden = true;
     var sideMenuButtons: Array<UIButton>?
     
+    @IBAction func statisticsAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func vehiclesAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func historyAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func settingsAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func aboutAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func logoutAction(_ sender: UIButton) {
+        print("in logout");
+        let userDef = UserDefaults.standard;
+        userDef.removeObject(forKey: "userId");
+        let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginVC");
+        self.present(loginView!, animated: true, completion: nil);
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sideMenuConstraint.constant = -177;
-        sideMenuButtons = [statisticsBtn, vehiclesBtn, historyBtn, settingsBtn, aboutBtn];
+        sideMenuButtons = [statisticsBtn, vehiclesBtn, historyBtn, settingsBtn, aboutBtn, logoutBtn];
         
         let gesture = UITapGestureRecognizer(target: self, action: "wholeViewAction:");
         self.wholeView.addGestureRecognizer(gesture);
+        
+        
     }
 
     @objc func wholeViewAction(_ sender:UITapGestureRecognizer) {
@@ -41,7 +68,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @IBAction func showSideMenu(_ sender: UIButton) {
+    @IBAction func showMenu(_ sender: Any) {
         if isSlideMenuHidden {
             sideMenuConstraint.constant = 0;
             for btn in sideMenuButtons! {
