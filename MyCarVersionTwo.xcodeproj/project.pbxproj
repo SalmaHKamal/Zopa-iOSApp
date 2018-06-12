@@ -49,6 +49,8 @@
 		7413388720C043810095D8DA /* CarWash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7413388620C043810095D8DA /* CarWash.swift */; };
 		7413388920C09DC60095D8DA /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7413388820C09DC60095D8DA /* UserDAO.swift */; };
 		743E1AC420C405CF00CFDF57 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743E1AC320C405CF00CFDF57 /* HomeViewController.swift */; };
+		74B87CDB20CFDA2600F8936E /* WashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B87CDA20CFDA2600F8936E /* WashViewController.swift */; };
+		74B87CDD20CFDFCC00F8936E /* RefuelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B87CDC20CFDFCC00F8936E /* RefuelViewController.swift */; };
 		FE82C35C046FB879A2FA4795 /* Pods_MyCarVersionTwo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D78B1A43E028116C274282D0 /* Pods_MyCarVersionTwo.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +100,8 @@
 		7413388620C043810095D8DA /* CarWash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWash.swift; sourceTree = "<group>"; };
 		7413388820C09DC60095D8DA /* UserDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		743E1AC320C405CF00CFDF57 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		74B87CDA20CFDA2600F8936E /* WashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashViewController.swift; sourceTree = "<group>"; };
+		74B87CDC20CFDFCC00F8936E /* RefuelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelViewController.swift; sourceTree = "<group>"; };
 		D78B1A43E028116C274282D0 /* Pods_MyCarVersionTwo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCarVersionTwo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01D5C2731F66608A8B81A9B /* Pods-MyCarVersionTwo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCarVersionTwo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCarVersionTwo/Pods-MyCarVersionTwo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +241,8 @@
 				04955AA620CD3C22007AC83F /* MaintViewController.swift */,
 				04955AA820CD4A5F007AC83F /* OilViewController.swift */,
 				1622602020CE1FCC00A1BCB0 /* OilDetailsViewController.swift */,
+				74B87CDA20CFDA2600F8936E /* WashViewController.swift */,
+				74B87CDC20CFDFCC00F8936E /* RefuelViewController.swift */,
 			);
 			path = "Car Tracking";
 			sourceTree = "<group>";
@@ -404,37 +410,35 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyCarVersionTwo/Pods-MyCarVersionTwo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DTZFloatingActionButton/DTZFloatingActionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/Dropdowns/Dropdowns.framework",
 				"${BUILT_PRODUCTS_DIR}/FCAlertView/FCAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/FaceAware/FaceAware.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
-				"${BUILT_PRODUCTS_DIR}/InteractiveSideMenu/InteractiveSideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/MultilineTextField/MultilineTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMPaperSwitch/RAMPaperSwitch.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SimpleAlert/SimpleAlert.framework",
-				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/UIDropDown/UIDropDown.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTZFloatingActionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dropdowns.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FCAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaceAware.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InteractiveSideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MultilineTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMPaperSwitch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleAlert.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIDropDown.framework",
 			);
@@ -451,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04DE1A5E20C959670019E416 /* SplashViewController.swift in Sources */,
+				74B87CDB20CFDA2600F8936E /* WashViewController.swift in Sources */,
 				7413388320C040120095D8DA /* User.swift in Sources */,
 				1622602120CE1FCC00A1BCB0 /* OilDetailsViewController.swift in Sources */,
 				162856AD20B007FD009124CC /* AppDelegate.swift in Sources */,
@@ -473,6 +478,7 @@
 				1650EE0420B4524000C830FA /* CardViewController.swift in Sources */,
 				1626142D20B7A4D4000E54F6 /* SingleCarDataVC.swift in Sources */,
 				7413388720C043810095D8DA /* CarWash.swift in Sources */,
+				74B87CDD20CFDFCC00F8936E /* RefuelViewController.swift in Sources */,
 				7413386B20C0217C0095D8DA /* CarDAO.swift in Sources */,
 				16BDC2ED20C6AAF200374774 /* registerTVC.swift in Sources */,
 				162856B520B007FE009124CC /* MyCarVersionTwo.xcdatamodeld in Sources */,

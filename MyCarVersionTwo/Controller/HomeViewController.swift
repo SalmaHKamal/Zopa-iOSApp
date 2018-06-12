@@ -18,7 +18,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var settingsBtn: UIButton!
     @IBOutlet weak var aboutBtn: UIButton!
     @IBOutlet weak var logoutBtn: UIButton!
-    @IBOutlet weak var sideMenuConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sideMenuLeading: NSLayoutConstraint!
+    @IBOutlet weak var sideMenuTrailing: NSLayoutConstraint!
     
     var isSlideMenuHidden = true;
     var sideMenuButtons: Array<UIButton>?
@@ -49,7 +50,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sideMenuConstraint.constant = -177;
+        print("width in didLoad: \(UIScreen.main.bounds.width)");
+        sideMenuLeading.constant = -177;
+        sideMenuTrailing.constant = -1 * (UIScreen.main.bounds.width);
         sideMenuButtons = [statisticsBtn, vehiclesBtn, historyBtn, settingsBtn, aboutBtn, logoutBtn];
         
         let gesture = UITapGestureRecognizer(target: self, action: "wholeViewAction:");
@@ -60,7 +63,8 @@ class HomeViewController: UIViewController {
 
     @objc func wholeViewAction(_ sender:UITapGestureRecognizer) {
         if (isSlideMenuHidden == false) {
-            sideMenuConstraint.constant = -177;
+            sideMenuLeading.constant = -177;
+            sideMenuTrailing.constant = -1 * (UIScreen.main.bounds.width);
             UIView.animate(withDuration: 0.3, animations:{
                 self.view.layoutIfNeeded();
             });
@@ -70,7 +74,11 @@ class HomeViewController: UIViewController {
     
     @IBAction func showMenu(_ sender: Any) {
         if isSlideMenuHidden {
-            sideMenuConstraint.constant = 0;
+            print("trailing: \(UIScreen.main.bounds.width - ((UIScreen.main.bounds.width)/3))");
+            sideMenuLeading.constant = 0;
+//            sideMenuTrailing.constant = -100;
+            sideMenuTrailing.constant = -1 * (UIScreen.main.bounds.width - ((UIScreen.main.bounds.width)/2.5));
+
             for btn in sideMenuButtons! {
                 btn.layer.shadowColor = UIColor.darkGray.cgColor;
                 btn.layer.shadowOffset = CGSize(width: 2, height: 1);
@@ -82,7 +90,8 @@ class HomeViewController: UIViewController {
             });
         }
         else {
-            sideMenuConstraint.constant = -177;
+            sideMenuLeading.constant = -177;
+            sideMenuTrailing.constant = -1 * (UIScreen.main.bounds.width);
             UIView.animate(withDuration: 0.3, animations:{
                 self.view.layoutIfNeeded();
             });

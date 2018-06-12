@@ -9,15 +9,15 @@
 import Foundation
 import UIKit
 
-@IBDesignable class cardViewDesign : UIView{
+ class cardViewDesign : UIView{
     
-    @IBInspectable var cornerRaduis : CGFloat = 0
-    @IBInspectable var shadowColor : UIColor? = UIColor.black
+     var cornerRaduis : CGFloat = 0
+     var shadowColor : UIColor? = UIColor.black
     
-    @IBInspectable let shadowOffsetSetWidth : Int = 0
-    @IBInspectable let shadowOffsetSetHeight : Int = 1
+     let shadowOffsetSetWidth : Int = 0
+     let shadowOffsetSetHeight : Int = 1
     
-    @IBInspectable var shadowOpacity : Float = 0.2
+     var shadowOpacity : Float = 0.2
     
     override func layoutSubviews() {
         

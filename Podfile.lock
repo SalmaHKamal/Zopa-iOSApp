@@ -1,10 +1,10 @@
 PODS:
   - DropDown (2.3.1)
   - Dropdowns (2.0.0)
+  - DTZFloatingActionButton (0.3.0)
   - FaceAware (1.2.0)
   - FCAlertView (1.4.0)
   - Floaty (3.0.1)
-  - InteractiveSideMenu (2.3)
   - MultilineTextField (0.2.2)
   - NVActivityIndicatorView (4.1.1):
     - NVActivityIndicatorView/Presenter (= 4.1.1)
@@ -16,23 +16,21 @@ PODS:
   - RealmSwift (3.1.1):
     - Realm (= 3.1.1)
   - SimpleAlert (3.0.0)
-  - TextFieldEffects (1.4.0)
   - Toast-Swift (3.0.1)
   - UIDropDown (1.1.1)
 
 DEPENDENCIES:
   - DropDown
   - Dropdowns
+  - DTZFloatingActionButton
   - FaceAware
   - FCAlertView
   - Floaty (~> 3.0.0)
-  - InteractiveSideMenu
   - MultilineTextField
   - NVActivityIndicatorView
   - RAMPaperSwitch
   - RealmSwift
   - SimpleAlert
-  - TextFieldEffects
   - Toast-Swift (~> 3.0.1)
   - UIDropDown
 
@@ -40,37 +38,35 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DropDown
     - Dropdowns
+    - DTZFloatingActionButton
     - FaceAware
     - FCAlertView
     - Floaty
-    - InteractiveSideMenu
     - MultilineTextField
     - NVActivityIndicatorView
     - RAMPaperSwitch
     - Realm
     - RealmSwift
     - SimpleAlert
-    - TextFieldEffects
     - Toast-Swift
     - UIDropDown
 
 SPEC CHECKSUMS:
   DropDown: 20499c7b2731b0d21609af924e47c7677a2be50d
   Dropdowns: 9dd32d9ac9cc59e56ae093b588d35477abde32d2
+  DTZFloatingActionButton: ba22fbb31e700052073197caeaac1782a1c1fd3c
   FaceAware: 421436f9d16aacdb26ffcf8e5a39a1dd68630395
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   Floaty: bb7a353deee9ddcc14c584ca9c538efdc19669f2
-  InteractiveSideMenu: d503a508c6d62a4d5d4372d9fb9e1795637a8e45
   MultilineTextField: 4fe1fbdd32b97c19712b2988f4ae2f73002821b9
   NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
   RAMPaperSwitch: ef08af0400a040c9850e09253280deb77510becb
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
   RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
   SimpleAlert: 7265c3006749c680627545b61ac37d9ab1ab0be6
-  TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   UIDropDown: 22e6e3e22d419884c8f21d95ea9be36aac905ed4
 
-PODFILE CHECKSUM: 2a4473a2099c45d9ff6ba84a780cf46ea2ad4a4a
+PODFILE CHECKSUM: 0b5df954790bd630b55fd1613f1eed45b799de46
 
 COCOAPODS: 1.5.3
