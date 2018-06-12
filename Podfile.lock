@@ -1,6 +1,7 @@
 PODS:
   - DropDown (2.3.1)
   - Dropdowns (2.0.0)
+  - DTZFloatingActionButton (0.3.0)
   - FaceAware (1.2.0)
   - FCAlertView (1.4.0)
   - Floaty (3.0.1)
@@ -22,6 +23,7 @@ PODS:
 DEPENDENCIES:
   - DropDown
   - Dropdowns
+  - DTZFloatingActionButton
   - FaceAware
   - FCAlertView
   - Floaty (~> 3.0.0)
@@ -38,6 +40,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - DropDown
     - Dropdowns
+    - DTZFloatingActionButton
     - FaceAware
     - FCAlertView
     - Floaty
@@ -54,6 +57,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   DropDown: 20499c7b2731b0d21609af924e47c7677a2be50d
   Dropdowns: 9dd32d9ac9cc59e56ae093b588d35477abde32d2
+  DTZFloatingActionButton: ba22fbb31e700052073197caeaac1782a1c1fd3c
   FaceAware: 421436f9d16aacdb26ffcf8e5a39a1dd68630395
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   Floaty: bb7a353deee9ddcc14c584ca9c538efdc19669f2
@@ -67,6 +71,6 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   UIDropDown: 22e6e3e22d419884c8f21d95ea9be36aac905ed4
 
-PODFILE CHECKSUM: 47965bd21c42382bbb012b911e1c581463da4d1b
+PODFILE CHECKSUM: 247e8ed1003bfdf0670b965d2cb23708259f9df5
 
 COCOAPODS: 1.5.2
