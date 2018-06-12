@@ -57,6 +57,8 @@ class HomeViewController: UIViewController {
         
         let gesture = UITapGestureRecognizer(target: self, action: "wholeViewAction:");
         self.wholeView.addGestureRecognizer(gesture);
+        
+        
     }
 
     @objc func wholeViewAction(_ sender:UITapGestureRecognizer) {
@@ -70,7 +72,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @IBAction func showSideMenu(_ sender: UIButton) {
+    @IBAction func showMenu(_ sender: Any) {
         if isSlideMenuHidden {
             print("trailing: \(UIScreen.main.bounds.width - ((UIScreen.main.bounds.width)/3))");
             sideMenuLeading.constant = 0;

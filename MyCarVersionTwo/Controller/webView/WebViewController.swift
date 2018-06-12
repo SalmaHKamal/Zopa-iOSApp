@@ -11,17 +11,31 @@ import WebKit
 class WebViewController: UIViewController {
 
     @IBOutlet weak var webview: WKWebView!
-    override func viewDidLoad() {
+   
+    var siteID:Int = 0
+    var urld:URL?
+    override func viewDidLoad() {        
         super.viewDidLoad()
-        let url = URL(string:"https://www.asfaalt.com")
-        let request=URLRequest(url:url!)
+        switch siteID{
+        case 0:
+            urld = URL(string:"http://www.asfaalt.com")
+        case 1:
+            urld = URL(string:"https://www.CarParts.com")
+        case 2:
+            urld = URL(string:"https://www.jumia.com")
+        default:
+            urld = URL(string:"https://www.google.com")
+        }
+        
+        let request=URLRequest(url:urld!)
         webview.load(request)
         
     }
- 
+    
     override var prefersStatusBarHidden: Bool{
         return true
     }
- 
-
+    
+    
 }
+
