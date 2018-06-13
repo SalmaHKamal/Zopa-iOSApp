@@ -19,6 +19,16 @@ class RefuelViewController: UIViewController , UITableViewDelegate , UITableView
         super.viewDidLoad();
         addFloatingBtn();
         refuelsTableView.separatorStyle = UITableViewCellSeparatorStyle.none;
+        
+        self.title = "Refuel"
+        let backImg = UIImage(named: "back");
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
+    }
+    
+    @objc func backHome(){
+        print("test")
+        //let homeVc = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
+        dismiss(animated: true, completion: nil)
     }
     
     func addFloatingBtn(){

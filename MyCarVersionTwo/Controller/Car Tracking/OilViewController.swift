@@ -27,11 +27,15 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         addFloatingBtn();
         myTableView.separatorStyle = UITableViewCellSeparatorStyle.none;
         
-        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "save", style: UIBarButtonItemStyle.done, target: self, action: #selector(save)), animated: true)
+        self.title = "Oil"
+        let backImg = UIImage(named: "back");
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
     }
     
-    @objc func save(){
+    @objc func backHome(){
         print("test")
+        //let homeVc = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {

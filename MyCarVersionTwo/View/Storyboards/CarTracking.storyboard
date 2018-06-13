@@ -86,13 +86,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kN-lJ-ord">
-                                <rect key="frame" x="0.0" y="30" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.32441027578003229" green="0.0066206178730618594" blue="0.64219993368700268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="Oil" id="YL3-bn-TSH"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xPI-hh-zLh">
                                 <rect key="frame" x="0.0" y="94" width="375" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -163,11 +156,8 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xPI-hh-zLh" firstAttribute="top" secondItem="1kN-lJ-ord" secondAttribute="bottom" constant="20" id="ArM-25-dMx"/>
+                            <constraint firstItem="xPI-hh-zLh" firstAttribute="top" secondItem="F6H-z4-0bS" secondAttribute="top" constant="30" id="6Xh-pg-J3v"/>
                             <constraint firstItem="xPI-hh-zLh" firstAttribute="leading" secondItem="F6H-z4-0bS" secondAttribute="leading" id="B0f-TC-nwq"/>
-                            <constraint firstItem="1kN-lJ-ord" firstAttribute="top" secondItem="nWO-kN-CBO" secondAttribute="top" constant="30" id="D1C-He-uVv"/>
-                            <constraint firstItem="1kN-lJ-ord" firstAttribute="leading" secondItem="F6H-z4-0bS" secondAttribute="leading" id="Icm-07-cpb"/>
-                            <constraint firstItem="1kN-lJ-ord" firstAttribute="trailing" secondItem="F6H-z4-0bS" secondAttribute="trailing" id="Kac-3q-yUF"/>
                             <constraint firstItem="xPI-hh-zLh" firstAttribute="bottom" secondItem="F6H-z4-0bS" secondAttribute="bottom" id="oRQ-Xu-WsN"/>
                             <constraint firstItem="xPI-hh-zLh" firstAttribute="trailing" secondItem="F6H-z4-0bS" secondAttribute="trailing" id="yjX-XS-Pf2"/>
                         </constraints>
@@ -267,10 +257,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZUQ-Mv-bXQ"/>
                     </view>
+                    <connections>
+                        <outlet property="distance" destination="dbh-TJ-GVC" id="dLM-ht-iTI"/>
+                        <outlet property="oilDate" destination="oEr-tJ-vuN" id="4Nv-pT-gH0"/>
+                        <outlet property="oilPrice" destination="NaM-il-IcN" id="Xic-iB-3gY"/>
+                        <outlet property="oilType" destination="esa-OY-x9W" id="8r7-Sy-hag"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79c-80-Zhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1994" y="3098"/>
+            <point key="canvasLocation" x="-1994" y="3136"/>
         </scene>
         <!--Car Wash Details View Controller-->
         <scene sceneID="KdW-2c-ZDr">
@@ -337,10 +333,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="l0U-PI-8uI"/>
                     </view>
+                    <connections>
+                        <outlet property="carWashDate" destination="4LA-cv-Ta4" id="YVA-Ye-g43"/>
+                        <outlet property="carWashPlace" destination="2Xu-71-A3o" id="9gr-2N-H7U"/>
+                        <outlet property="carWashPrice" destination="04s-de-X1w" id="1j5-fr-gC3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UxY-nw-o4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1103" y="3171"/>
+            <point key="canvasLocation" x="-1127" y="3135"/>
         </scene>
         <!--Refuel Details View Controller-->
         <scene sceneID="Rrb-mG-OF7">
@@ -444,10 +445,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dRI-Ff-L5l"/>
                     </view>
+                    <connections>
+                        <outlet property="refuelDate" destination="1zi-HR-lci" id="Mnv-F3-990"/>
+                        <outlet property="refuelExtraNotes" destination="WEV-q0-cEi" id="43i-pX-dSD"/>
+                        <outlet property="refuelPlcae" destination="iQU-vV-Tw4" id="Zuh-aj-znF"/>
+                        <outlet property="refuelPrice" destination="EXI-kl-dgD" id="kfX-HS-TZn"/>
+                        <outlet property="refuelType" destination="iAm-Kh-7z1" id="U8a-hf-tGy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r71-kK-dXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234" y="3172"/>
+            <point key="canvasLocation" x="-234" y="3135"/>
         </scene>
         <!--Wash View Controller-->
         <scene sceneID="kuU-u4-5qd">
@@ -457,13 +465,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ize-rZ-dom">
-                                <rect key="frame" x="0.0" y="30" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.32441027579999998" green="0.0066206178730000001" blue="0.64219993369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="Car Wash" id="Rcc-kZ-RRG"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zz5-U2-UOW">
                                 <rect key="frame" x="0.0" y="94" width="375" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -534,13 +535,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Ize-rZ-dom" firstAttribute="top" secondItem="h68-oP-2hh" secondAttribute="top" constant="30" id="AKq-kI-N0n"/>
-                            <constraint firstItem="Ize-rZ-dom" firstAttribute="leading" secondItem="7XD-nd-blz" secondAttribute="leading" id="BLn-Cc-hJw"/>
                             <constraint firstItem="Zz5-U2-UOW" firstAttribute="trailing" secondItem="7XD-nd-blz" secondAttribute="trailing" id="Nnk-Qj-5nV"/>
-                            <constraint firstItem="Ize-rZ-dom" firstAttribute="trailing" secondItem="7XD-nd-blz" secondAttribute="trailing" id="SDx-rr-SX1"/>
                             <constraint firstItem="Zz5-U2-UOW" firstAttribute="leading" secondItem="7XD-nd-blz" secondAttribute="leading" id="bT0-pL-WLd"/>
-                            <constraint firstItem="Zz5-U2-UOW" firstAttribute="top" secondItem="Ize-rZ-dom" secondAttribute="bottom" constant="20" id="eWG-6v-z5K"/>
                             <constraint firstItem="7XD-nd-blz" firstAttribute="bottom" secondItem="Zz5-U2-UOW" secondAttribute="bottom" id="fKy-zA-l2c"/>
+                            <constraint firstItem="Zz5-U2-UOW" firstAttribute="top" secondItem="7XD-nd-blz" secondAttribute="top" constant="30" id="oI8-eX-6nU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7XD-nd-blz"/>
                     </view>
@@ -551,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfz-8d-jct" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1103" y="2515"/>
+            <point key="canvasLocation" x="-1126" y="2438"/>
         </scene>
         <!--Refuel View Controller-->
         <scene sceneID="zDy-zE-Pvv">
@@ -561,13 +559,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kbz-Ut-dH7">
-                                <rect key="frame" x="0.0" y="30" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.32441027579999998" green="0.0066206178730000001" blue="0.64219993369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="Refuel" id="LV5-Np-Vhn"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" estimatedRowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rwj-9k-uBo">
                                 <rect key="frame" x="0.0" y="94" width="375" height="524"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -638,13 +629,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rwj-9k-uBo" firstAttribute="top" secondItem="Kbz-Ut-dH7" secondAttribute="bottom" constant="20" id="1bg-Uo-D3m"/>
-                            <constraint firstItem="Kbz-Ut-dH7" firstAttribute="top" secondItem="vjT-bw-FZ1" secondAttribute="top" constant="30" id="7v7-aY-Hzy"/>
                             <constraint firstItem="jlF-O0-OdL" firstAttribute="bottom" secondItem="rwj-9k-uBo" secondAttribute="bottom" id="FFz-NO-Sy7"/>
-                            <constraint firstItem="Kbz-Ut-dH7" firstAttribute="trailing" secondItem="jlF-O0-OdL" secondAttribute="trailing" id="KnO-iI-sHm"/>
-                            <constraint firstItem="Kbz-Ut-dH7" firstAttribute="leading" secondItem="jlF-O0-OdL" secondAttribute="leading" id="Pul-1u-AKD"/>
                             <constraint firstItem="rwj-9k-uBo" firstAttribute="leading" secondItem="jlF-O0-OdL" secondAttribute="leading" id="RhL-iu-Y0v"/>
                             <constraint firstItem="jlF-O0-OdL" firstAttribute="trailing" secondItem="rwj-9k-uBo" secondAttribute="trailing" id="Scs-j4-v0A"/>
+                            <constraint firstItem="rwj-9k-uBo" firstAttribute="top" secondItem="jlF-O0-OdL" secondAttribute="top" constant="30" id="nfl-Th-i3K"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jlF-O0-OdL"/>
                     </view>
@@ -655,7 +643,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Jm-AG-lfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234" y="2489"/>
+            <point key="canvasLocation" x="-234" y="2438"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1zi-rs-maT">

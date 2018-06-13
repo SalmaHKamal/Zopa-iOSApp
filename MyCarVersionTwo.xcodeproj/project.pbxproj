@@ -53,6 +53,7 @@
 		743E1AC420C405CF00CFDF57 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 743E1AC320C405CF00CFDF57 /* HomeViewController.swift */; };
 		74B87CDB20CFDA2600F8936E /* WashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B87CDA20CFDA2600F8936E /* WashViewController.swift */; };
 		74B87CDD20CFDFCC00F8936E /* RefuelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B87CDC20CFDFCC00F8936E /* RefuelViewController.swift */; };
+		74F8C60820D1447B005ED6F8 /* icons8-back-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 74F8C60720D1447B005ED6F8 /* icons8-back-30.png */; };
 		FE82C35C046FB879A2FA4795 /* Pods_MyCarVersionTwo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D78B1A43E028116C274282D0 /* Pods_MyCarVersionTwo.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,6 +107,7 @@
 		743E1AC320C405CF00CFDF57 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		74B87CDA20CFDA2600F8936E /* WashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WashViewController.swift; sourceTree = "<group>"; };
 		74B87CDC20CFDFCC00F8936E /* RefuelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelViewController.swift; sourceTree = "<group>"; };
+		74F8C60720D1447B005ED6F8 /* icons8-back-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-back-30.png"; sourceTree = "<group>"; };
 		D78B1A43E028116C274282D0 /* Pods_MyCarVersionTwo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyCarVersionTwo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01D5C2731F66608A8B81A9B /* Pods-MyCarVersionTwo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCarVersionTwo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyCarVersionTwo/Pods-MyCarVersionTwo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +154,7 @@
 		162856A020B007FD009124CC = {
 			isa = PBXGroup;
 			children = (
+				74F8C60720D1447B005ED6F8 /* icons8-back-30.png */,
 				162856AB20B007FD009124CC /* MyCarVersionTwo */,
 				162856AA20B007FD009124CC /* Products */,
 				B2DE6E402C58CF24475F64E1 /* Pods */,
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				162856BA20B007FE009124CC /* LaunchScreen.storyboard in Resources */,
+				74F8C60820D1447B005ED6F8 /* icons8-back-30.png in Resources */,
 				16A4A08120BB3C8F00246A60 /* CarCardVC.xib in Resources */,
 				162856B720B007FE009124CC /* Assets.xcassets in Resources */,
 				1650EDFA20B42E9600C830FA /* OBD.storyboard in Resources */,

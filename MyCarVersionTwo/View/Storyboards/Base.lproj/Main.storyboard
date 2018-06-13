@@ -456,7 +456,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="carTrack"/>
                                 <connections>
-                                    <segue destination="trI-ud-yVa" kind="show" id="AjV-4Y-nk1"/>
+                                    <segue destination="trI-ud-yVa" kind="presentation" id="AjV-4Y-nk1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz0-vc-UdG">
@@ -638,7 +638,9 @@
         <!--CarTracking-->
         <scene sceneID="TKn-9u-ltt">
             <objects>
-                <viewControllerPlaceholder storyboardName="CarTracking" id="trI-ud-yVa" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="CarTracking" id="trI-ud-yVa" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lkM-hZ-CCg"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAx-kZ-DIF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5096" y="-2365.8170914542729"/>

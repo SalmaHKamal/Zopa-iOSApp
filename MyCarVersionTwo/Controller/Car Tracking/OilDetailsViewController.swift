@@ -12,8 +12,11 @@ import Dropdowns
 
 class OilDetailsViewController: UIViewController {
 
+    @IBOutlet weak var oilType: UITextField!
+    @IBOutlet weak var distance: UITextField!
+    @IBOutlet weak var oilPrice: UITextField!
+    @IBOutlet weak var oilDate: UIDatePicker!
     
-    @IBOutlet weak var result: UILabel!
     var Cars : [Car] = [Car]()
     
     override func viewDidLoad() {
@@ -24,12 +27,11 @@ class OilDetailsViewController: UIViewController {
         //displayCarMenu()
         //getAllCarsForMenu()
         //displayAllCarsMenu()
-        
-        
     }
     
     @objc func save(){
-        print("save")
+        print("save oil date");
+        //let Oil = Oil();
     }
     
     func getAllCarsForMenu(){
@@ -73,8 +75,6 @@ class OilDetailsViewController: UIViewController {
         
         let oil : Oil = Oil()
         oil.date = sender.date
-        result.text = oil.date.description
-        
     }
     
     func displayCarMenu(){

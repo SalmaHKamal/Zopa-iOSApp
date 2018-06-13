@@ -19,6 +19,16 @@ class WashViewController: UIViewController , UITableViewDelegate , UITableViewDa
         super.viewDidLoad();
         addFloatingBtn();
         washingsTableView.separatorStyle = UITableViewCellSeparatorStyle.none;
+        
+        self.title = "Car Wash"
+        let backImg = UIImage(named: "back");
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
+    }
+    
+    @objc func backHome(){
+        print("test")
+        //let homeVc = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
+        dismiss(animated: true, completion: nil)
     }
     
     func addFloatingBtn(){
