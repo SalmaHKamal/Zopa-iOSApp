@@ -31,7 +31,11 @@ class OilDetailsViewController: UIViewController {
     
     @objc func save(){
         print("save oil date");
-        //let Oil = Oil();
+        let oil = Oil();
+        oil.type = oilType.text!
+      // oil.price = ((oilPrice.text!) as String).doubl
+        //oil.numOfKm = distance.text!
+        oil.date = oilDate.date
     }
     
     func getAllCarsForMenu(){
