@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import Floaty
+//import Floaty
 import Realm
+import DTZFloatingActionButton
 
 class CarListViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , updateCarListTableProtocol{
 
@@ -19,6 +20,7 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
     
     //variables
     var listOfCars : [Car]?
+    lazy var floatingButton = DTZFloatingActionButton(frame:CGRect(x: view.frame.size.width - 40 - 20,y: view.frame.size.height - 40 - 60,width: 40,height: 40));
     
     
     override func viewDidLoad() {
@@ -46,14 +48,22 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
     
     func addFloatingBtn(){
         
-        let floaty = Floaty()
-        floaty.buttonColor = UIColor.brown
-        floaty.addItem(title: "new Car", handler: {item in
-            
+        floatingButton.handler = { _ in
             self.openSingleCarCtrl()
-        })
+        }
+        floatingButton.isScrollView = true;
+        floatingButton.buttonColor = UIColor.white;
+        floatingButton.plusColor = UIColor.gray
+        self.view.addSubview(floatingButton);
         
-        self.view.addSubview(floaty)
+//        let floaty = Floaty()
+//        floaty.buttonColor = UIColor.brown
+//        floaty.addItem(title: "new Car", handler: {item in
+//
+//            self.openSingleCarCtrl()
+//        })
+//
+//        self.view.addSubview(floaty)
     }
     
     func openSingleCarCtrl(){

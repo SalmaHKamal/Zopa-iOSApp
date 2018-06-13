@@ -37,10 +37,7 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         //let homeVc = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
         dismiss(animated: true, completion: nil)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-    }
-    
+
     func getloggedInUserId() -> String {
         let userDef = UserDefaults.standard;
         return userDef.value(forKey: "userId") as! String;
@@ -74,10 +71,7 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         floatingButton.buttonColor = UIColor.purple;
         self.view.addSubview(floatingButton);
     }
-    
-    func openOilDetailsVC(){
-        
-    }
+
     
 }
 
