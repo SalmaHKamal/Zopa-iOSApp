@@ -1,4 +1,10 @@
 PODS:
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
+  - ChartsRealm (3.0.5):
+    - Charts (= 3.0.5)
+    - RealmSwift (~> 3.1.1)
   - DropDown (2.3.1)
   - Dropdowns (2.0.0)
   - DTZFloatingActionButton (0.2.0)
@@ -21,6 +27,8 @@ PODS:
   - UIDropDown (1.1.1)
 
 DEPENDENCIES:
+  - Charts
+  - ChartsRealm
   - DropDown
   - Dropdowns
   - DTZFloatingActionButton
@@ -37,6 +45,8 @@ DEPENDENCIES:
   - UIDropDown
 
 SPEC CHECKSUMS:
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
+  ChartsRealm: a08d5fd4d3bfb51d0f0608e4d2218253919fa396
   DropDown: 20499c7b2731b0d21609af924e47c7677a2be50d
   Dropdowns: 9dd32d9ac9cc59e56ae093b588d35477abde32d2
   DTZFloatingActionButton: 9dc86d3e566c2c601d82e9c86003289dc8b7559b
@@ -53,6 +63,6 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   UIDropDown: 22e6e3e22d419884c8f21d95ea9be36aac905ed4
 
-PODFILE CHECKSUM: 86fcb29b1f37c4afcd16ad6b11c94219982e37fb
+PODFILE CHECKSUM: 4e72e2102a1abce3fd55ce25bf442b3f1702b544
 
 COCOAPODS: 1.4.0

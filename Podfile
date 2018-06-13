@@ -14,6 +14,8 @@ target 'MyCarVersionTwo' do
   pod 'RAMPaperSwitch'
   pod 'Toast-Swift', '~> 3.0.1'
   pod 'FaceAware'
+  pod 'Charts'
+  pod 'ChartsRealm'
   pod 'RealmSwift'
   pod 'NVActivityIndicatorView'
   pod 'Dropdowns'
