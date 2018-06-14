@@ -19,12 +19,24 @@ class WashViewController: UIViewController , UITableViewDelegate , UITableViewDa
         super.viewDidLoad();
         addFloatingBtn();
         washingsTableView.separatorStyle = UITableViewCellSeparatorStyle.none;
+        
+        self.title = "Car Wash"
+        let backImg = UIImage(named: "back");
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
+    }
+    
+    @objc func backHome(){
+        print("test")
+        //let homeVc = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
+        dismiss(animated: true, completion: nil)
     }
     
     func addFloatingBtn(){
         floatingButton.handler = {
             button in
             print("add new car wash btn clicked");
+            let carWashDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "carWashDetailsId") as! CarWashDetailsViewController;
+            self.navigationController?.pushViewController(carWashDetailsVC, animated: true);
         }
         floatingButton.isScrollView = true;
         floatingButton.buttonColor = UIColor.purple;
@@ -48,8 +60,7 @@ extension WashViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let oilDetailsVC = storyboard?.instantiateViewController(withIdentifier: "oilDetails") as! OilDetailsViewController
-        
-        self.navigationController?.pushViewController(oilDetailsVC, animated: true)
+        let carWashDetailsVC = storyboard?.instantiateViewController(withIdentifier: "carWashDetailsId") as! CarWashDetailsViewController;
+        self.navigationController?.pushViewController(carWashDetailsVC, animated: true);
     }
 }

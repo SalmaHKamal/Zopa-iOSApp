@@ -27,26 +27,17 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         addFloatingBtn();
         myTableView.separatorStyle = UITableViewCellSeparatorStyle.none;
         
-        self.navigationItem.setRightBarButton(UIBarButtonItem(title: "save", style: UIBarButtonItemStyle.done, target: self, action: #selector(save)), animated: true)
+        self.title = "Oil"
+        let backImg = UIImage(named: "back");
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
     }
     
-    @objc func save(){
+    @objc func backHome(){
         print("test")
+        //let homeVc = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
+        dismiss(animated: true, completion: nil)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        //setTableBgImage()
-        
-        //listOfOilData = [Oil]()
-        
-        
-//        let results : [Oil] = OilDAO.getInstance()
-//        listOfOilData = results
-//        self.myTableView.reloadData()
 
-    }
-    
     func getloggedInUserId() -> String {
         let userDef = UserDefaults.standard;
         return userDef.value(forKey: "userId") as! String;
@@ -72,28 +63,15 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
     func addFloatingBtn(){
         floatingButton.handler = {
             button in
-            print("add new car wash btn clicked");
+            print("add new oil btn clicked");
+            let oilDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "oilDetailsId") as! OilDetailsViewController;
+            self.navigationController?.pushViewController(oilDetailsVC, animated: true);
         }
         floatingButton.isScrollView = true;
         floatingButton.buttonColor = UIColor.purple;
         self.view.addSubview(floatingButton);
     }
-    
-    func openOilDetailsVC(){
-        
-//        let oilDetailsVc = storyboard?.instantiateViewController(withIdentifier:"oilDetails") as! OilDetailsViewController
-//
-//        oilDetailsVc.singleCar?.image = UIImagePNGRepresentation(UIImage(named : "car_image.jpg")!)!
-//        oilDetailsVc.singleCar?.name = ""
-//        oilDetailsVc.singleCar?.model = ""
-//        oilDetailsVc.singleCar?.year = ""
-//        oilDetailsVc.singleCar?.desc = ""
-//
-//        oilDetailsVc.delegate = self
-//
-//        self.navigationController?.pushViewController(detailsVc, animated: true)
-//
-    }
+
     
 }
 
@@ -119,8 +97,7 @@ extension OilViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let oilDetailsVC = storyboard?.instantiateViewController(withIdentifier: "oilDetails") as! OilDetailsViewController
-        
+        let oilDetailsVC = storyboard?.instantiateViewController(withIdentifier: "oilDetailsId") as! OilDetailsViewController
         self.navigationController?.pushViewController(oilDetailsVC, animated: true)
     }
 }

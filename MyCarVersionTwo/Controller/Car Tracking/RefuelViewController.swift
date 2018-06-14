@@ -19,12 +19,24 @@ class RefuelViewController: UIViewController , UITableViewDelegate , UITableView
         super.viewDidLoad();
         addFloatingBtn();
         refuelsTableView.separatorStyle = UITableViewCellSeparatorStyle.none;
+        
+        self.title = "Refuel"
+        let backImg = UIImage(named: "back");
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
+    }
+    
+    @objc func backHome(){
+        print("test")
+        //let homeVc = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
+        dismiss(animated: true, completion: nil)
     }
     
     func addFloatingBtn(){
         floatingButton.handler = {
             button in
-            print("add new car wash btn clicked");
+            print("add new refuel btn clicked");
+            let refuelDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "refuelDetailsId") as! RefuelDetailsViewController;
+            self.navigationController?.pushViewController(refuelDetailsVC, animated: true);
         }
         floatingButton.isScrollView = true;
         floatingButton.buttonColor = UIColor.purple;
@@ -49,9 +61,8 @@ extension RefuelViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let oilDetailsVC = storyboard?.instantiateViewController(withIdentifier: "oilDetails") as! OilDetailsViewController
-        
-        self.navigationController?.pushViewController(oilDetailsVC, animated: true)
+        let refuelDetailsVC = storyboard?.instantiateViewController(withIdentifier: "refuelDetailsId") as! RefuelDetailsViewController;
+        self.navigationController?.pushViewController(refuelDetailsVC, animated: true);
     }
 }
 

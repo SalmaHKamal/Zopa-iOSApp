@@ -1,7 +1,13 @@
 PODS:
+  - Charts (3.0.5):
+    - Charts/Core (= 3.0.5)
+  - Charts/Core (3.0.5)
+  - ChartsRealm (3.0.5):
+    - Charts (= 3.0.5)
+    - RealmSwift (~> 3.1.1)
   - DropDown (2.3.1)
   - Dropdowns (2.0.0)
-  - DTZFloatingActionButton (0.3.0)
+  - DTZFloatingActionButton (0.2.0)
   - FaceAware (1.2.0)
   - FCAlertView (1.4.0)
   - Floaty (3.0.1)
@@ -17,10 +23,13 @@ PODS:
   - RealmSwift (3.1.1):
     - Realm (= 3.1.1)
   - SimpleAlert (3.0.0)
+  - SwiftyPickerPopover (6.0.0)
   - Toast-Swift (3.0.1)
   - UIDropDown (1.1.1)
 
 DEPENDENCIES:
+  - Charts
+  - ChartsRealm
   - DropDown
   - Dropdowns
   - DTZFloatingActionButton
@@ -33,11 +42,14 @@ DEPENDENCIES:
   - ReachabilitySwift
   - RealmSwift
   - SimpleAlert
+  - SwiftyPickerPopover
   - Toast-Swift (~> 3.0.1)
   - UIDropDown
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Charts
+    - ChartsRealm
     - DropDown
     - Dropdowns
     - DTZFloatingActionButton
@@ -51,13 +63,16 @@ SPEC REPOS:
     - Realm
     - RealmSwift
     - SimpleAlert
+    - SwiftyPickerPopover
     - Toast-Swift
     - UIDropDown
 
 SPEC CHECKSUMS:
+  Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
+  ChartsRealm: a08d5fd4d3bfb51d0f0608e4d2218253919fa396
   DropDown: 20499c7b2731b0d21609af924e47c7677a2be50d
   Dropdowns: 9dd32d9ac9cc59e56ae093b588d35477abde32d2
-  DTZFloatingActionButton: ba22fbb31e700052073197caeaac1782a1c1fd3c
+  DTZFloatingActionButton: 9dc86d3e566c2c601d82e9c86003289dc8b7559b
   FaceAware: 421436f9d16aacdb26ffcf8e5a39a1dd68630395
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   Floaty: bb7a353deee9ddcc14c584ca9c538efdc19669f2
@@ -68,9 +83,10 @@ SPEC CHECKSUMS:
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
   RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
   SimpleAlert: 7265c3006749c680627545b61ac37d9ab1ab0be6
+  SwiftyPickerPopover: 081a93a1958f0fe6767cef7f145089053e2b85e0
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   UIDropDown: 22e6e3e22d419884c8f21d95ea9be36aac905ed4
 
-PODFILE CHECKSUM: 9085909cc9b768e907c09c79bbc8719e46ced220
+PODFILE CHECKSUM: 19baf6bc42e9f6458f84aff4d7b220d6ea519766
 
 COCOAPODS: 1.5.3

@@ -456,7 +456,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="carTrack"/>
                                 <connections>
-                                    <segue destination="trI-ud-yVa" kind="show" id="AjV-4Y-nk1"/>
+                                    <segue destination="trI-ud-yVa" kind="presentation" id="AjV-4Y-nk1"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sz0-vc-UdG">
@@ -638,7 +638,9 @@
         <!--CarTracking-->
         <scene sceneID="TKn-9u-ltt">
             <objects>
-                <viewControllerPlaceholder storyboardName="CarTracking" id="trI-ud-yVa" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="CarTracking" id="trI-ud-yVa" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lkM-hZ-CCg"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jAx-kZ-DIF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5096" y="-2365.8170914542729"/>
@@ -1223,16 +1225,70 @@
             <objects>
                 <viewController title="StatisticsView" id="mgH-27-jJZ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wok-GQ-DiY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bWS-GQ-Bmi">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="736"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slR-dC-6rt">
+                                        <rect key="frame" x="0.0" y="60" width="375" height="676"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ahy-I5-ydv">
+                                                <rect key="frame" x="20" y="8" width="335" height="295"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="295" id="ni7-PY-C4j"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCC-iF-dA2">
+                                                <rect key="frame" x="20" y="327" width="335" height="295"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="295" id="bGx-cg-XVr"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="295" id="he1-QA-YgL"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.72689406499999998" blue="0.41313204440000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Ahy-I5-ydv" firstAttribute="top" secondItem="slR-dC-6rt" secondAttribute="top" constant="8" id="7CA-kb-n43"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ahy-I5-ydv" secondAttribute="trailing" constant="20" id="CVs-L0-1hJ"/>
+                                            <constraint firstItem="Ahy-I5-ydv" firstAttribute="leading" secondItem="slR-dC-6rt" secondAttribute="leading" constant="20" id="DAz-o3-WJT"/>
+                                            <constraint firstAttribute="trailing" secondItem="aCC-iF-dA2" secondAttribute="trailing" constant="20" id="FcN-gN-HCg"/>
+                                            <constraint firstAttribute="bottom" secondItem="aCC-iF-dA2" secondAttribute="bottom" constant="54" id="GfI-gU-cmK"/>
+                                            <constraint firstItem="aCC-iF-dA2" firstAttribute="leading" secondItem="slR-dC-6rt" secondAttribute="leading" constant="20" id="GsO-Yh-yUR"/>
+                                            <constraint firstItem="aCC-iF-dA2" firstAttribute="top" secondItem="Ahy-I5-ydv" secondAttribute="bottom" constant="24" id="RZp-gh-eOY"/>
+                                            <constraint firstAttribute="height" constant="676" id="iS0-hf-DpL"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="slR-dC-6rt" firstAttribute="leading" secondItem="bWS-GQ-Bmi" secondAttribute="leading" id="7Hw-J4-rOt"/>
+                                    <constraint firstAttribute="trailing" secondItem="slR-dC-6rt" secondAttribute="trailing" id="Vj1-D9-vCL"/>
+                                    <constraint firstItem="slR-dC-6rt" firstAttribute="top" secondItem="bWS-GQ-Bmi" secondAttribute="top" constant="60" id="oh9-Rj-SO8"/>
+                                    <constraint firstAttribute="bottom" secondItem="slR-dC-6rt" secondAttribute="bottom" id="vdu-1K-tAd"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bWS-GQ-Bmi" firstAttribute="top" secondItem="rOr-hm-xcX" secondAttribute="top" id="510-dY-krg"/>
+                            <constraint firstItem="rOr-hm-xcX" firstAttribute="trailing" secondItem="bWS-GQ-Bmi" secondAttribute="trailing" id="8qO-Iz-rkd"/>
+                            <constraint firstItem="bWS-GQ-Bmi" firstAttribute="leading" secondItem="rOr-hm-xcX" secondAttribute="leading" id="J4e-oI-xWw"/>
+                            <constraint firstItem="slR-dC-6rt" firstAttribute="width" secondItem="wok-GQ-DiY" secondAttribute="width" id="KaO-I1-tKz"/>
+                            <constraint firstItem="rOr-hm-xcX" firstAttribute="bottom" secondItem="bWS-GQ-Bmi" secondAttribute="bottom" id="aMm-23-Nmj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rOr-hm-xcX"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="aYJ-pz-2fG"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="800"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRH-32-lUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3882" y="-1372"/>
+            <point key="canvasLocation" x="-3882.4000000000001" y="-1372.7136431784108"/>
         </scene>
         <!--SettingView-->
         <scene sceneID="eb8-h6-aXr">
