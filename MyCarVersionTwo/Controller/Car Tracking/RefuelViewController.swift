@@ -9,11 +9,12 @@
 import UIKit
 import DTZFloatingActionButton
 
-class RefuelViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
+class RefuelViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , RefuelProtocol{
     
     @IBOutlet weak var refuelsTableView: UITableView!
     
     lazy var floatingButton = DTZFloatingActionButton(frame:CGRect(x: view.frame.size.width - 40 - 20,y: view.frame.size.height - 40 - 60,width: 40,height: 40));
+    var refuelArr = Array<Refuel>();
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -23,6 +24,10 @@ class RefuelViewController: UIViewController , UITableViewDelegate , UITableView
         self.title = "Refuel"
         let backImg = UIImage(named: "back");
         self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
+    }
+    
+    func addRefuelToCart(refuelObj: Refuel) {
+        refuelArr.append(refuelObj);
     }
     
     @objc func backHome(){
@@ -36,6 +41,7 @@ class RefuelViewController: UIViewController , UITableViewDelegate , UITableView
             button in
             print("add new refuel btn clicked");
             let refuelDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "refuelDetailsId") as! RefuelDetailsViewController;
+            refuelDetailsVC.myRefuelProtocol = self;
             self.navigationController?.pushViewController(refuelDetailsVC, animated: true);
         }
         floatingButton.isScrollView = true;

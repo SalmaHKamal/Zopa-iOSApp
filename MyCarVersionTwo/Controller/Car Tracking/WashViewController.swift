@@ -9,11 +9,12 @@
 import UIKit
 import DTZFloatingActionButton
 
-class WashViewController: UIViewController , UITableViewDelegate , UITableViewDataSource {
+class WashViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , CarWashProtocol {
     
     @IBOutlet weak var washingsTableView: UITableView!
     
     lazy var floatingButton = DTZFloatingActionButton(frame:CGRect(x: view.frame.size.width - 40 - 20,y: view.frame.size.height - 40 - 60,width: 40,height: 40));
+    var carWashArr = Array<CarWash>();
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -23,6 +24,10 @@ class WashViewController: UIViewController , UITableViewDelegate , UITableViewDa
         self.title = "Car Wash"
         let backImg = UIImage(named: "back");
         self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
+    }
+    
+    func addCarWashToCart(carWashObj: CarWash) {
+        carWashArr.append(carWashObj);
     }
     
     @objc func backHome(){
@@ -36,6 +41,7 @@ class WashViewController: UIViewController , UITableViewDelegate , UITableViewDa
             button in
             print("add new car wash btn clicked");
             let carWashDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "carWashDetailsId") as! CarWashDetailsViewController;
+            carWashDetailsVC.myCarWashProtocol = self;
             self.navigationController?.pushViewController(carWashDetailsVC, animated: true);
         }
         floatingButton.isScrollView = true;

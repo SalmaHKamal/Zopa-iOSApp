@@ -16,8 +16,12 @@ class OilDetailsViewController: UIViewController {
     @IBOutlet weak var distance: UITextField!
     @IBOutlet weak var oilPrice: UITextField!
     @IBOutlet weak var oilDate: UIDatePicker!
+    @IBOutlet weak var selectedDateVal: UILabel!
     
     var Cars : [Car] = [Car]()
+    let oilInstance = OilDAO.getInstance();
+    var myOilProtocol: OilProtocol?
+    let oil = Oil()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,24 +34,49 @@ class OilDetailsViewController: UIViewController {
     }
     
     @objc func save(){
-        print("save oil date");
-        let oil = Oil();
-        oil.type = oilType.text!
-      // oil.price = ((oilPrice.text!) as String).doubl
-        //oil.numOfKm = distance.text!
-        oil.date = oilDate.date
+        print("save oil date")
+      
+        guard let oil_type = oilType.text , !oil_type.isEmpty else{
+            self.view.makeToast("enter oil type", duration: 3.0, position: .bottom)
+            return
+        }
+        guard let oil_price = oilPrice.text , !oil_price.isEmpty else{
+            self.view.makeToast("enter oil price", duration: 3.0, position: .bottom)
+            return
+        }
+        guard let oil_distance = distance.text , !oil_distance.isEmpty else{
+            self.view.makeToast("enter oil distance", duration: 3.0, position: .bottom)
+            return
+        }
+        
+        oil.type = oil_type
+        oil.price = NSString(string: oil_price).doubleValue
+        oil.numOfKm = NSString(string: oil_distance).doubleValue
+        //oil.date = oilDate.date
+        oilDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        
+        oilInstance.insertNewOil(oilObj: oil)
+        
+        myOilProtocol?.addOilToCart(oilObj: oil)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func dateChanged(_ sender: UIDatePicker) {
+        oil.date = sender.date
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        if let day = components.day, let month = components.month, let year = components.year {
+            print("oil date: \(day) \(month) \(year)")
+            selectedDateVal.text = "\(day) / \(month) / \(year)"
+        }
     }
     
     func getAllCarsForMenu(){
-        
         let userId = getLoggedInUserId()
         Cars = CarDAO.getInstance().getAllCars(userID: userId)
-        
     }
     
     func getLoggedInUserId() -> String {
         let userDef = UserDefaults.standard
-        
         return userDef.value(forKey: "userId") as! String
     }
     
@@ -60,7 +89,6 @@ class OilDetailsViewController: UIViewController {
        // drop.options = ["Mexico", "USA", "England", "France", "Germany", "Spain", "Italy", "Canada"]
         
         for i in Cars{
-
             print(i.name)
             drop.options.append(i.name)
         }
@@ -75,11 +103,10 @@ class OilDetailsViewController: UIViewController {
         
     }
     
-    @IBAction func dateChanged(_ sender: UIDatePicker) {
-        
+   /* @IBAction func dateChanged(_ sender: UIDatePicker) {
         let oil : Oil = Oil()
         oil.date = sender.date
-    }
+    }*/
     
     func displayCarMenu(){
         let items = ["World", "Sports", "Culture", "Business", "Travel"]// car from daos
@@ -89,9 +116,6 @@ class OilDetailsViewController: UIViewController {
         }
         
         navigationItem.titleView = titleView
-        
     }
-    
-
 
 }

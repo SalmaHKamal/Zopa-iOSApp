@@ -16,9 +16,9 @@ class Refuel: Object {
     @objc dynamic var price = 0.0;
     @objc dynamic var place = "";
     @objc dynamic var extraNotes = "";
-    @objc dynamic var amount = "";
+    @objc dynamic var amount = 0.0;
     
-    convenience init (refuelingTypeVal: String, refuelingDateVal: Date, refuelingPriceVal: Double, refuelingPlaceVal: String, extraNotesVal: String, refuelAmount: String) {
+    convenience init (refuelingTypeVal: String, refuelingDateVal: Date, refuelingPriceVal: Double, refuelingPlaceVal: String, extraNotesVal: String, refuelAmount: Double) {
         
         self.init();
         self.type = refuelingTypeVal;
