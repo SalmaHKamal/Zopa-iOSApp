@@ -19,6 +19,8 @@ target 'MyCarVersionTwo' do
   pod 'RealmSwift'
   pod 'NVActivityIndicatorView'
   pod 'Dropdowns'
+  pod 'DTZFloatingActionButton'    
+  pod 'ReachabilitySwift'
   pod 'DTZFloatingActionButton'
   pod 'SwiftyPickerPopover'    
 
