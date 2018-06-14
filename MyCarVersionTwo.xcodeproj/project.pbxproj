@@ -22,6 +22,7 @@
 		162856B720B007FE009124CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 162856B620B007FE009124CC /* Assets.xcassets */; };
 		162856BA20B007FE009124CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 162856B820B007FE009124CC /* LaunchScreen.storyboard */; };
 		1636ED2220B8F2FC00CFA5B7 /* updateCarListTableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1636ED2120B8F2FC00CFA5B7 /* updateCarListTableProtocol.swift */; };
+		164292A820D1CF74008D0EAE /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164292A720D1CF74008D0EAE /* StatisticsVC.swift */; };
 		1650EDF820B42E5100C830FA /* CarTracking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1650EDF720B42E5100C830FA /* CarTracking.storyboard */; };
 		1650EDFA20B42E9600C830FA /* OBD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1650EDF920B42E9600C830FA /* OBD.storyboard */; };
 		1650EDFC20B42EBA00C830FA /* NewCar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1650EDFB20B42EBA00C830FA /* NewCar.storyboard */; };
@@ -75,6 +76,7 @@
 		162856B920B007FE009124CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		162856BB20B007FE009124CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1636ED2120B8F2FC00CFA5B7 /* updateCarListTableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateCarListTableProtocol.swift; sourceTree = "<group>"; };
+		164292A720D1CF74008D0EAE /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
 		1650EDF720B42E5100C830FA /* CarTracking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarTracking.storyboard; sourceTree = "<group>"; };
 		1650EDF920B42E9600C830FA /* OBD.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OBD.storyboard; sourceTree = "<group>"; };
 		1650EDFB20B42EBA00C830FA /* NewCar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCar.storyboard; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				74B87CDC20CFDFCC00F8936E /* RefuelViewController.swift */,
 				7411241520D0034200271DC5 /* CarWashDetailsViewController.swift */,
 				7411241720D0035800271DC5 /* RefuelDetailsViewController.swift */,
+				164292A720D1CF74008D0EAE /* StatisticsVC.swift */,
 			);
 			path = "Car Tracking";
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				16653B3620B0155800765363 /* CarTrackingCell.swift in Sources */,
 				16D5302F20B8637B00BCA4BD /* UserProfileController.swift in Sources */,
 				16653B3D20B169F700765363 /* CarTItemDetailsViewController.swift in Sources */,
+				164292A820D1CF74008D0EAE /* StatisticsVC.swift in Sources */,
 				7411241820D0035800271DC5 /* RefuelDetailsViewController.swift in Sources */,
 				743E1AC420C405CF00CFDF57 /* HomeViewController.swift in Sources */,
 				1650EE0420B4524000C830FA /* CardViewController.swift in Sources */,

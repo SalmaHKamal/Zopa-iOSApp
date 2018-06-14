@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ido-6c-YgJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mgH-27-jJZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -1223,7 +1223,7 @@
         <!--StatisticsView-->
         <scene sceneID="ysL-Fh-h1J">
             <objects>
-                <viewController title="StatisticsView" id="mgH-27-jJZ" sceneMemberID="viewController">
+                <viewController title="StatisticsView" id="mgH-27-jJZ" customClass="StatisticsVC" customModule="MyCarVersionTwo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wok-GQ-DiY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1234,14 +1234,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="slR-dC-6rt">
                                         <rect key="frame" x="0.0" y="60" width="375" height="676"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ahy-I5-ydv">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ahy-I5-ydv" customClass="LineChartView" customModule="Charts">
                                                 <rect key="frame" x="20" y="8" width="335" height="295"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="295" id="ni7-PY-C4j"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCC-iF-dA2">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCC-iF-dA2" customClass="PieChartView" customModule="Charts">
                                                 <rect key="frame" x="20" y="327" width="335" height="295"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -1285,6 +1285,10 @@
                     <navigationItem key="navigationItem" id="aYJ-pz-2fG"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="800"/>
+                    <connections>
+                        <outlet property="lineChartView" destination="Ahy-I5-ydv" id="c2i-Ip-qVs"/>
+                        <outlet property="pieChartView" destination="aCC-iF-dA2" id="p7A-k9-AWh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nRH-32-lUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
