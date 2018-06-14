@@ -7,7 +7,6 @@ target 'MyCarVersionTwo' do
   
   pod "Floaty", "~> 3.0.0" # Use version 4.0.0 for Swift 4.0
   pod 'DropDown'	
-  pod 'TextFieldEffects'
   pod 'MultilineTextField'
   pod 'UIDropDown' #dropdown list
   pod 'FCAlertView'
@@ -18,5 +17,6 @@ target 'MyCarVersionTwo' do
   pod 'RealmSwift'
   pod 'NVActivityIndicatorView'
   pod 'Dropdowns'
-  pod 'InteractiveSideMenu'
+  pod 'DTZFloatingActionButton'    
+  pod 'ReachabilitySwift'
 end

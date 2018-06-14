@@ -1,4 +1,4 @@
-//
+////
 //  OilViewController.swift
 //  MyCarVersionTwo
 //
@@ -8,13 +8,14 @@
 
 import UIKit
 import Dropdowns
-import Floaty
+import DTZFloatingActionButton
 
 class OilViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
     
     //outlets
     @IBOutlet weak var myTableView: UITableView!
     
+    lazy var floatingButton = DTZFloatingActionButton(frame:CGRect(x: view.frame.size.width - 40 - 20,y: view.frame.size.height - 40 - 60,width: 40,height: 40));
 
     //var
     //var listOfOilData = [Oil]?
@@ -22,14 +23,11 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        displayCarMenu()
-        addFloatingBtn()
-        
-        myTableView.delegate = self
-        myTableView.dataSource = self
+        //displayCarMenu()
+        addFloatingBtn();
+        myTableView.separatorStyle = UITableViewCellSeparatorStyle.none;
         
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "save", style: UIBarButtonItemStyle.done, target: self, action: #selector(save)), animated: true)
-        
     }
     
     @objc func save(){
@@ -38,7 +36,7 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
     
     override func viewWillAppear(_ animated: Bool) {
         
-        setTableBgImage()
+        //setTableBgImage()
         
         //listOfOilData = [Oil]()
         
@@ -72,15 +70,13 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
     }
     
     func addFloatingBtn(){
-        
-        let floaty = Floaty()
-        floaty.buttonColor = UIColor.brown
-        floaty.addItem(title: "new Car", handler: {item in
-            
-            //openOilDetailsVC()
-        })
-        
-        self.view.addSubview(floaty)
+        floatingButton.handler = {
+            button in
+            print("add new car wash btn clicked");
+        }
+        floatingButton.isScrollView = true;
+        floatingButton.buttonColor = UIColor.purple;
+        self.view.addSubview(floatingButton);
     }
     
     func openOilDetailsVC(){
@@ -98,19 +94,27 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
 //        self.navigationController?.pushViewController(detailsVc, animated: true)
 //
     }
-  
+    
+}
+
+extension OilViewController : updateCarListTableProtocol{
+    func updateTableValues(newCar: Car) {
+    }
+}
+
+// Mark: - tableview methods
+extension OilViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = myTableView.dequeueReusableCell(withIdentifier: "singleOilCell", for: indexPath)
-        
         return cell
     }
     
@@ -119,14 +123,4 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         
         self.navigationController?.pushViewController(oilDetailsVC, animated: true)
     }
-    
-}
-
-extension OilViewController : updateCarListTableProtocol{
-    
-    func updateTableValues(newCar: Car) {
-        
-    }
-    
-    
 }

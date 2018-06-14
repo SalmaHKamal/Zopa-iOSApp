@@ -52,8 +52,7 @@ class LoginViewController: UIViewController {
     
     func goToHome(){
         print("from go to home")
-        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "homeVC")
-        self.present(loginVC!, animated: true, completion: nil)
+        perform(#selector(showHome), with: nil, afterDelay: 2)
     }
     
     func saveInUserDefaults(){
@@ -61,17 +60,17 @@ class LoginViewController: UIViewController {
         let userDefaults = UserDefaults.standard
         userDefaults.setValue(self.ifExist, forKeyPath: "userId")
         userDefaults.setValue(true, forKeyPath: "isLoggedIn")
-    
         
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-
+    @objc func showHome(){
+        performSegue(withIdentifier: "showHomeFromLogin", sender: self)
+    }
     
     
 
