@@ -16,8 +16,8 @@ class Car: Object {
     @objc dynamic var model = "";
     @objc dynamic var year = "";
     @objc dynamic var desc = "";
-    @objc dynamic var image : Data = Data();
-    @objc dynamic var owner = ""
+    @objc dynamic var image : Data = Data()
+   // @objc dynamic var owner = ""
     
     var prevCarWashings = List <CarWash>();
     var prevRefuels = List <Refuel>();
@@ -27,14 +27,13 @@ class Car: Object {
         return "id";
     }
     
-    convenience init (carNameVal: String, carModelVal: String, carYearVal: String, carDescVal: String, carImageVal: Data , carOwnerVal: String) {
+    convenience init (carNameVal: String, carModelVal: String, carYearVal: String, carDescVal: String) {
         
         self.init();
         self.name = carNameVal;
         self.model = carModelVal;
         self.year = carYearVal;
         self.desc = carDescVal;
-        self.image = carImageVal;
-        //self.owner = carOwnerVal;
+       // self.owner = carOwnerVal;
     }
 }

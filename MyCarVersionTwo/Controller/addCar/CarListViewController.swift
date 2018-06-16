@@ -16,10 +16,9 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
     //outlets
     @IBOutlet weak var carListTable: UITableView!
     
-    
-    
     //variables
     var listOfCars : [Car]?
+    
     lazy var floatingButton = DTZFloatingActionButton(frame:CGRect(x: view.frame.size.width - 40 - 20,y: view.frame.size.height - 40 - 60,width: 40,height: 40));
     
     
@@ -37,12 +36,18 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
     }
  
     override func viewWillAppear(_ animated: Bool) {
-        listOfCars = [Car]()
+        
+        listOfCars = Array<Car>()
         
         let userDef = UserDefaults.standard;
         let userId: String = userDef.value(forKey: "userId") as! String;
-        let results : [Car] = CarDAO.getInstance().getAllCars(userID: userId as! String);
-        listOfCars = results
+        //let results : [Car] = CarDAO.getInstance().getAllCars(userID: userId as! String);
+        var userObj: User = UserDAO.getInstance().getUserByID(userId: userId)!
+        print("user name: \(userObj.cars.count)")
+        var results = Array<Car>()
+        results.append(contentsOf: userObj.cars)
+        listOfCars?.append(contentsOf: results)
+        print("results count: \(results.count)")
         self.carListTable.reloadData()
     }
     
@@ -77,6 +82,7 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("listOfCars count: \(listOfCars!.count)")
         return listOfCars!.count
     }
     
@@ -118,8 +124,6 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
         for i in listOfCars! {
             print("name of car is \(i.name)")
         }
-
-
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -135,9 +139,9 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
         
         listOfCars?.append(newCar)
         
-        for i in listOfCars! {
+        /*for i in listOfCars! {
             print(i.owner)
-        }
+        }*/
         
         self.carListTable.reloadData()
     }

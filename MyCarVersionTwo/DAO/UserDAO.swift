@@ -63,4 +63,11 @@ class UserDAO: NSObject {
         print("image data: \(String(describing: user?.profilePic))");
     }
     
+    func addCarForUser(newCar: Car, userObj: User) {
+        try! UserDAO.realm.write {
+            userObj.cars.append(newCar)
+            UserDAO.realm.add(userObj, update: true);
+        }
+    }
+    
 }

@@ -87,5 +87,15 @@ class CarDAO: NSObject {
         print("test function")
     }
     
+    func saveCarPic(imgData: Data, carId: String) {
+        print("in car picture update method");
+        let car = CarDAO.realm.object(ofType: Car.self, forPrimaryKey: carId);
+        try! CarDAO.realm.write {
+            car?.image = imgData;
+            CarDAO.realm.add(car!, update: true);
+        }
+        print("car image data: \(String(describing: car?.image))");
+    }
+    
 
 }
