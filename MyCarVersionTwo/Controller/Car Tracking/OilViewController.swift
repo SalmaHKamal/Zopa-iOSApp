@@ -28,19 +28,16 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         self.title = "Oil"
         let backImg = UIImage(named: "back");
         self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
+        
     }
     
     func addOilToCart(oilObj: Oil) {
         oilArr.append(oilObj);
+        self.myTableView.reloadData();
     }
     
     @objc func backHome(){
         dismiss(animated: true, completion: nil)
-    }
-    
-    func getloggedInUserId() -> String {
-        let userDef = UserDefaults.standard;
-        return userDef.value(forKey: "userId") as! String;
     }
     
     func setTableBgImage(){
@@ -71,7 +68,6 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         floatingButton.buttonColor = UIColor.purple;
         self.view.addSubview(floatingButton);
     }
-
 }
 
 extension OilViewController : updateCarListTableProtocol{
@@ -92,6 +88,13 @@ extension OilViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = myTableView.dequeueReusableCell(withIdentifier: "singleOilCell", for: indexPath)
+        let oilDateLbl = cell.viewWithTag(1) as! UILabel
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: oilArr[indexPath.row].date)
+        if let day = components.day, let month = components.month, let year = components.year {
+            oilDateLbl.text = "\(day) / \(month) / \(year)"
+        }
+        let oilPrice = cell.viewWithTag(2) as! UILabel
+        oilPrice.text = String(oilArr[indexPath.row].price)
         return cell
     }
     

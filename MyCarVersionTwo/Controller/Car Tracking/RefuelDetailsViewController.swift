@@ -16,10 +16,12 @@ class RefuelDetailsViewController: UIViewController {
     @IBOutlet weak var refuelAmount: UITextField!
     @IBOutlet weak var refuelExtraNotes: UITextView!
     @IBOutlet weak var refuelDate: UIDatePicker!
+    @IBOutlet weak var selectedDateVal: UILabel!
     
     let refuelInstance = RefuelDAO.getInstance();
     var myRefuelProtocol: RefuelProtocol?
     let refuel = Refuel()
+    let loggedUserId = CommonMethods.getloggedInUserId()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +52,20 @@ class RefuelDetailsViewController: UIViewController {
         refuel.price = NSString(string: refuel_price).doubleValue
         refuel.amount = NSString(string: refuel_amount).doubleValue
         refuel.place = refuel_place
-        refuel.date = refuelDate.date
-        refuelInstance.insertRefuelData(refuelObj: refuel)
+        refuelDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         
+        refuelInstance.insertRefuelData(refuelObj: refuel)
         myRefuelProtocol?.addRefuelToCart(refuelObj: refuel)
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func dateChanged(_ sender: UIDatePicker) {
+        print("ggggggggggggg")
+        refuel.date = sender.date
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        if let day = components.day, let month = components.month, let year = components.year {
+            print("refuel date: \(day) \(month) \(year)")
+            selectedDateVal.text = "\(day) / \(month) / \(year)"
+        }
     }
 }

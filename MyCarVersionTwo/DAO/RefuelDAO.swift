@@ -25,7 +25,7 @@ class RefuelDAO: NSObject {
     
     func insertRefuelData(refuelObj: Refuel) {
         try! RefuelDAO.realm.write {
-            RefuelDAO.realm.add(refuelObj);
+            RefuelDAO.realm.add(refuelObj)
         }
         print("new refuel wash has been inserted into DB");
     }

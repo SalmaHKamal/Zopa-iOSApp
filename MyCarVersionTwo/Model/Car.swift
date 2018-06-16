@@ -19,6 +19,10 @@ class Car: Object {
     @objc dynamic var image : Data = Data();
     @objc dynamic var owner = ""
     
+    var prevCarWashings = List <CarWash>();
+    var prevRefuels = List <Refuel>();
+    var prevOils = List <Oil>();
+    
     override static func primaryKey() -> String? {
         return "id";
     }
@@ -31,6 +35,6 @@ class Car: Object {
         self.year = carYearVal;
         self.desc = carDescVal;
         self.image = carImageVal;
-        self.owner = carOwnerVal;
+        //self.owner = carOwnerVal;
     }
 }

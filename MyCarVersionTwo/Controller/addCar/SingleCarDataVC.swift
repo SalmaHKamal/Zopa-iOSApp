@@ -73,7 +73,7 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
                                carDescVal: carDescField.text,
                                carImageVal: UIImagePNGRepresentation(carImgView.image!)!,
                                carOwnerVal: userId)
-        https://github.com/SalmaHKamal/Zopa-iOSApp
+        
         if let carvar = singleCar {
             newSingleCar.id = carvar.id
             

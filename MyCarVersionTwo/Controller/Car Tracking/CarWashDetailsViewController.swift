@@ -18,6 +18,7 @@ class CarWashDetailsViewController: UIViewController {
     let carWashInstance = CarWashDAO.getInstance();
     var myCarWashProtocol: CarWashProtocol?
     let carWash = CarWash()
+    let loggedUserId = CommonMethods.getloggedInUserId()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,6 @@ class CarWashDetailsViewController: UIViewController {
             self.view.makeToast("enter car wash place", duration: 3.0, position: .bottom)
             return
         }
-        
         guard let wash_price = carWashPrice.text , !wash_price.isEmpty else{
             self.view.makeToast("enter car wash price", duration: 3.0, position: .bottom)
             return
@@ -39,10 +39,9 @@ class CarWashDetailsViewController: UIViewController {
         
         carWash.washingPlace = wash_place
         carWash.washingPrice = NSString(string: wash_price).doubleValue
-        //carWash.washingDate = carWashDate.date
         carWashDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
-        carWashInstance.insertCarWashData(carWashObj: carWash)
         
+        carWashInstance.insertCarWashData(carWashObj: carWash)
         myCarWashProtocol?.addCarWashToCart(carWashObj: carWash)
         self.navigationController?.popViewController(animated: true)
     }

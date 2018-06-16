@@ -28,11 +28,10 @@ class WashViewController: UIViewController , UITableViewDelegate , UITableViewDa
     
     func addCarWashToCart(carWashObj: CarWash) {
         carWashArr.append(carWashObj);
+        self.washingsTableView.reloadData();
     }
     
     @objc func backHome(){
-        print("test")
-        //let homeVc = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
         dismiss(animated: true, completion: nil)
     }
     
@@ -57,11 +56,18 @@ extension WashViewController {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4;
+        return carWashArr.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = washingsTableView.dequeueReusableCell(withIdentifier: "carWashCell", for: indexPath);
+        let carWashDateLbl = cell.viewWithTag(1) as! UILabel
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: carWashArr[indexPath.row].washingDate)
+        if let day = components.day, let month = components.month, let year = components.year {
+            carWashDateLbl.text = "\(day) / \(month) / \(year)"
+        }
+        let carWashPlace = cell.viewWithTag(2) as! UILabel
+        carWashPlace.text = String(carWashArr[indexPath.row].washingPlace)
         return cell;
     }
     

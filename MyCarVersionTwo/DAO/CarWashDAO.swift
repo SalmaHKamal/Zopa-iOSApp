@@ -25,7 +25,7 @@ class CarWashDAO: NSObject {
     
     func insertCarWashData(carWashObj: CarWash) {
         try! CarWashDAO.realm.write {
-            CarWashDAO.realm.add(carWashObj);
+            CarWashDAO.realm.add(carWashObj)
         }
         print("new car wash has been inserted into DB");
     }

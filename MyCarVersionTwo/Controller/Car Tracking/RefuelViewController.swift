@@ -28,11 +28,10 @@ class RefuelViewController: UIViewController , UITableViewDelegate , UITableView
     
     func addRefuelToCart(refuelObj: Refuel) {
         refuelArr.append(refuelObj);
+        self.refuelsTableView.reloadData();
     }
     
     @objc func backHome(){
-        print("test")
-        //let homeVc = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
         dismiss(animated: true, completion: nil)
     }
     
@@ -58,11 +57,18 @@ extension RefuelViewController {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4;
+        return refuelArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = refuelsTableView.dequeueReusableCell(withIdentifier: "refuelCell", for: indexPath);
+        let refuelDateLbl = cell.viewWithTag(1) as! UILabel
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: refuelArr[indexPath.row].date)
+        if let day = components.day, let month = components.month, let year = components.year {
+            refuelDateLbl.text = "\(day) / \(month) / \(year)"
+        }
+        let refuelPrice = cell.viewWithTag(2) as! UILabel
+        refuelPrice.text = String(refuelArr[indexPath.row].price)
         return cell;
     }
     

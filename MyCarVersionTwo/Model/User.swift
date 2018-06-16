@@ -19,9 +19,6 @@ class User: Object {
     @objc dynamic var address = "";
     @objc dynamic var profilePic : Data = Data();
     var cars = List <Car>();
-    var prevCarWashings = List <CarWash>();
-    var prevRefuels = List <Refuel>();
-    var prevOils = List <Oil>();
     
     override static func primaryKey() -> String? {
         return "id";
