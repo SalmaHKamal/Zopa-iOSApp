@@ -46,27 +46,6 @@ DEPENDENCIES:
   - Toast-Swift (~> 3.0.1)
   - UIDropDown
 
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - Charts
-    - ChartsRealm
-    - DropDown
-    - Dropdowns
-    - DTZFloatingActionButton
-    - FaceAware
-    - FCAlertView
-    - Floaty
-    - MultilineTextField
-    - NVActivityIndicatorView
-    - RAMPaperSwitch
-    - ReachabilitySwift
-    - Realm
-    - RealmSwift
-    - SimpleAlert
-    - SwiftyPickerPopover
-    - Toast-Swift
-    - UIDropDown
-
 SPEC CHECKSUMS:
   Charts: 45cdc985b764c838b35ee47eb1365d15735f6d1a
   ChartsRealm: a08d5fd4d3bfb51d0f0608e4d2218253919fa396
@@ -89,4 +68,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 19baf6bc42e9f6458f84aff4d7b220d6ea519766
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.4.0

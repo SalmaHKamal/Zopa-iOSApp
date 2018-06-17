@@ -75,7 +75,6 @@ class CarListViewController: UIViewController , UITableViewDelegate , UITableVie
         detailsVc.singleCar?.model = ""
         detailsVc.singleCar?.year = ""
         detailsVc.singleCar?.desc = ""
-        
         detailsVc.delegate = self
         
         self.navigationController?.pushViewController(detailsVc, animated: true)

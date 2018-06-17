@@ -18,15 +18,16 @@ class OilDetailsViewController: UIViewController {
     @IBOutlet weak var oilDate: UIDatePicker!
     
     var Cars : [Car] = [Car]()
-    
+    var selectedCar = Car()
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "save", style: UIBarButtonItemStyle.done, target: self, action: #selector(save)), animated: true)
 
-        //displayCarMenu()
-        //getAllCarsForMenu()
-        //displayAllCarsMenu()
+//        displayCarMenu()
+//        getAllCarsForMenu()
+//        displayAllCarsMenu()
+//        drawDropDownList()
     }
     
     @objc func save(){
@@ -39,10 +40,8 @@ class OilDetailsViewController: UIViewController {
     }
     
     func getAllCarsForMenu(){
-        
         let userId = getLoggedInUserId()
         Cars = CarDAO.getInstance().getAllCars(userID: userId)
-        
     }
     
     func getLoggedInUserId() -> String {
@@ -92,6 +91,18 @@ class OilDetailsViewController: UIViewController {
         
     }
     
+    func drawDropDownList(){
+        var items : [String] = [String]()
+        for i in Cars {
+            items.append(i.name)
+        }
+        let titleView = TitleView(navigationController: navigationController!, title: "choose car", items: items)
+        titleView?.action = { [weak self] index in
+            print("select \(index)")
+            self?.selectedCar = (self?.Cars[index])!
+        }
+        navigationItem.titleView = titleView
+    }
 
 
 }

@@ -12,7 +12,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-
         <!--Car Tracking View Controller-->
         <scene sceneID="efp-Ac-NTd">
             <objects>
@@ -78,10 +77,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQS-2v-a98" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1018" y="112"/>
+            <point key="canvasLocation" x="-1103" y="98"/>
         </scene>
         <!--Oil View Controller-->
-
         <scene sceneID="Wh6-mD-yjr">
             <objects>
                 <viewController id="Dkv-Yo-yRJ" customClass="OilViewController" customModule="MyCarVersionTwo" customModuleProvider="target" sceneMemberID="viewController">
@@ -299,8 +297,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="79c-80-Zhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1338" y="2391"/>       
-
+            <point key="canvasLocation" x="-1994" y="3211"/>
         </scene>
         <!--Car Wash Details View Controller-->
         <scene sceneID="KdW-2c-ZDr">
@@ -406,8 +403,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UxY-nw-o4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-627" y="2541"/>
-
+            <point key="canvasLocation" x="-1103" y="3211"/>
         </scene>
         <!--Refuel Details View Controller-->
         <scene sceneID="Rrb-mG-OF7">
@@ -567,7 +563,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r71-kK-dXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-234.40000000000001" y="3134.4827586206898"/>
+            <point key="canvasLocation" x="-234" y="3211"/>
         </scene>
         <!--Wash View Controller-->
         <scene sceneID="kuU-u4-5qd">
@@ -755,8 +751,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Jm-AG-lfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48.799999999999997" y="1706.8965517241381"/>
-
+            <point key="canvasLocation" x="-234" y="2466"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="1zi-rs-maT">
@@ -777,7 +772,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1s3-46-PtM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-626" y="874"/>
+            <point key="canvasLocation" x="-1127" y="849"/>
         </scene>
         <!--Oil-->
         <scene sceneID="6pS-iT-4XS">
