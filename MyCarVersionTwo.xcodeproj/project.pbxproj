@@ -21,8 +21,10 @@
 		162856B520B007FE009124CC /* MyCarVersionTwo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 162856B320B007FE009124CC /* MyCarVersionTwo.xcdatamodeld */; };
 		162856B720B007FE009124CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 162856B620B007FE009124CC /* Assets.xcassets */; };
 		162856BA20B007FE009124CC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 162856B820B007FE009124CC /* LaunchScreen.storyboard */; };
+		16363E6F20D802C2006CEDED /* StatisticsOilVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16363E6E20D802C2006CEDED /* StatisticsOilVC.swift */; };
+		16363E7120D802F5006CEDED /* StatisticsWashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16363E7020D802F5006CEDED /* StatisticsWashVC.swift */; };
 		1636ED2220B8F2FC00CFA5B7 /* updateCarListTableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1636ED2120B8F2FC00CFA5B7 /* updateCarListTableProtocol.swift */; };
-		164292A820D1CF74008D0EAE /* StatisticsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164292A720D1CF74008D0EAE /* StatisticsVC.swift */; };
+		164292A820D1CF74008D0EAE /* StatisticsRefuelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164292A720D1CF74008D0EAE /* StatisticsRefuelVC.swift */; };
 		1650EDF820B42E5100C830FA /* CarTracking.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1650EDF720B42E5100C830FA /* CarTracking.storyboard */; };
 		1650EDFA20B42E9600C830FA /* OBD.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1650EDF920B42E9600C830FA /* OBD.storyboard */; };
 		1650EDFC20B42EBA00C830FA /* NewCar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1650EDFB20B42EBA00C830FA /* NewCar.storyboard */; };
@@ -39,6 +41,13 @@
 		16A4A08320BB3CA500246A60 /* CarCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A4A08220BB3CA500246A60 /* CarCardVC.swift */; };
 		16BDC2ED20C6AAF200374774 /* registerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16BDC2EC20C6AAF200374774 /* registerTVC.swift */; };
 		16D5302F20B8637B00BCA4BD /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D5302E20B8637B00BCA4BD /* UserProfileController.swift */; };
+		16F9956C20D714E60028EB5D /* StatisticsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9956B20D714E60028EB5D /* StatisticsVM.swift */; };
+		16F9956F20D731170028EB5D /* Interval+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F9956E20D731170028EB5D /* Interval+Date.swift */; };
+		740C0E6120D28813005C5369 /* OilProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C0E6020D28813005C5369 /* OilProtocol.swift */; };
+		740C0E6320D29D16005C5369 /* CarWashProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C0E6220D29D16005C5369 /* CarWashProtocol.swift */; };
+		740C0E6520D29D78005C5369 /* RefuelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C0E6420D29D78005C5369 /* RefuelProtocol.swift */; };
+		740C0E6720D2AED6005C5369 /* TestDropDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C0E6620D2AED6005C5369 /* TestDropDownViewController.swift */; };
+		740C0E6920D535AD005C5369 /* CommonMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 740C0E6820D535AD005C5369 /* CommonMethods.swift */; };
 		7411241620D0034200271DC5 /* CarWashDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411241520D0034200271DC5 /* CarWashDetailsViewController.swift */; };
 		7411241820D0035800271DC5 /* RefuelDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7411241720D0035800271DC5 /* RefuelDetailsViewController.swift */; };
 		7413386B20C0217C0095D8DA /* CarDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7413386A20C0217C0095D8DA /* CarDAO.swift */; };
@@ -75,8 +84,10 @@
 		162856B620B007FE009124CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		162856B920B007FE009124CC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		162856BB20B007FE009124CC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16363E6E20D802C2006CEDED /* StatisticsOilVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsOilVC.swift; sourceTree = "<group>"; };
+		16363E7020D802F5006CEDED /* StatisticsWashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsWashVC.swift; sourceTree = "<group>"; };
 		1636ED2120B8F2FC00CFA5B7 /* updateCarListTableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateCarListTableProtocol.swift; sourceTree = "<group>"; };
-		164292A720D1CF74008D0EAE /* StatisticsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVC.swift; sourceTree = "<group>"; };
+		164292A720D1CF74008D0EAE /* StatisticsRefuelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRefuelVC.swift; sourceTree = "<group>"; };
 		1650EDF720B42E5100C830FA /* CarTracking.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CarTracking.storyboard; sourceTree = "<group>"; };
 		1650EDF920B42E9600C830FA /* OBD.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OBD.storyboard; sourceTree = "<group>"; };
 		1650EDFB20B42EBA00C830FA /* NewCar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCar.storyboard; sourceTree = "<group>"; };
@@ -93,7 +104,14 @@
 		16A4A08220BB3CA500246A60 /* CarCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCardVC.swift; sourceTree = "<group>"; };
 		16BDC2EC20C6AAF200374774 /* registerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerTVC.swift; sourceTree = "<group>"; };
 		16D5302E20B8637B00BCA4BD /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		16F9956B20D714E60028EB5D /* StatisticsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsVM.swift; sourceTree = "<group>"; };
+		16F9956E20D731170028EB5D /* Interval+Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Interval+Date.swift"; sourceTree = "<group>"; };
 		4E3C5372C003FD0AF90BF475 /* Pods-MyCarVersionTwo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyCarVersionTwo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyCarVersionTwo/Pods-MyCarVersionTwo.release.xcconfig"; sourceTree = "<group>"; };
+		740C0E6020D28813005C5369 /* OilProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OilProtocol.swift; sourceTree = "<group>"; };
+		740C0E6220D29D16005C5369 /* CarWashProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashProtocol.swift; sourceTree = "<group>"; };
+		740C0E6420D29D78005C5369 /* RefuelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelProtocol.swift; sourceTree = "<group>"; };
+		740C0E6620D2AED6005C5369 /* TestDropDownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDropDownViewController.swift; sourceTree = "<group>"; };
+		740C0E6820D535AD005C5369 /* CommonMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMethods.swift; sourceTree = "<group>"; };
 		7411241520D0034200271DC5 /* CarWashDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashDetailsViewController.swift; sourceTree = "<group>"; };
 		7411241720D0035800271DC5 /* RefuelDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefuelDetailsViewController.swift; sourceTree = "<group>"; };
 		7413386A20C0217C0095D8DA /* CarDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDAO.swift; sourceTree = "<group>"; };
@@ -175,16 +193,18 @@
 		162856AB20B007FD009124CC /* MyCarVersionTwo */ = {
 			isa = PBXGroup;
 			children = (
+				16F9956D20D730EC0028EB5D /* Extentions */,
+				16F9956A20D714A30028EB5D /* ViewModel */,
 				7413386920C021340095D8DA /* DAO */,
 				16289D8020B4162200970D11 /* Model */,
 				168E90D820B29DB0003CA24C /* View */,
 				16289D8120B4162E00970D11 /* Controller */,
 				1650EE0120B449B300C830FA /* Default-568h@2x.png */,
+				162856B320B007FE009124CC /* MyCarVersionTwo.xcdatamodeld */,
 				162856AC20B007FD009124CC /* AppDelegate.swift */,
 				162856B620B007FE009124CC /* Assets.xcassets */,
 				162856B820B007FE009124CC /* LaunchScreen.storyboard */,
 				162856BB20B007FE009124CC /* Info.plist */,
-				162856B320B007FE009124CC /* MyCarVersionTwo.xcdatamodeld */,
 			);
 			path = MyCarVersionTwo;
 			sourceTree = "<group>";
@@ -213,6 +233,7 @@
 				16653B2020B0096F00765363 /* Car Tracking */,
 				16653B3E20B177B600765363 /* addCar */,
 				1636ED2120B8F2FC00CFA5B7 /* updateCarListTableProtocol.swift */,
+				740C0E6820D535AD005C5369 /* CommonMethods.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -254,7 +275,13 @@
 				74B87CDC20CFDFCC00F8936E /* RefuelViewController.swift */,
 				7411241520D0034200271DC5 /* CarWashDetailsViewController.swift */,
 				7411241720D0035800271DC5 /* RefuelDetailsViewController.swift */,
-				164292A720D1CF74008D0EAE /* StatisticsVC.swift */,
+				164292A720D1CF74008D0EAE /* StatisticsRefuelVC.swift */,
+				740C0E6020D28813005C5369 /* OilProtocol.swift */,
+				740C0E6220D29D16005C5369 /* CarWashProtocol.swift */,
+				740C0E6420D29D78005C5369 /* RefuelProtocol.swift */,
+				740C0E6620D2AED6005C5369 /* TestDropDownViewController.swift */,
+				16363E6E20D802C2006CEDED /* StatisticsOilVC.swift */,
+				16363E7020D802F5006CEDED /* StatisticsWashVC.swift */,
 			);
 			path = "Car Tracking";
 			sourceTree = "<group>";
@@ -283,6 +310,22 @@
 				16D5302E20B8637B00BCA4BD /* UserProfileController.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		16F9956A20D714A30028EB5D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				16F9956B20D714E60028EB5D /* StatisticsVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		16F9956D20D730EC0028EB5D /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				16F9956E20D731170028EB5D /* Interval+Date.swift */,
+			);
+			path = Extentions;
 			sourceTree = "<group>";
 		};
 		7413386920C021340095D8DA /* DAO */ = {
@@ -495,13 +538,18 @@
 				74B87CDB20CFDA2600F8936E /* WashViewController.swift in Sources */,
 				7413388320C040120095D8DA /* User.swift in Sources */,
 				1622602120CE1FCC00A1BCB0 /* OilDetailsViewController.swift in Sources */,
+				16363E7120D802F5006CEDED /* StatisticsWashVC.swift in Sources */,
 				162856AD20B007FD009124CC /* AppDelegate.swift in Sources */,
 				7413387120C021EB0095D8DA /* CarWashDAO.swift in Sources */,
 				7413388120C040090095D8DA /* Refuel.swift in Sources */,
 				04955AA920CD4A5F007AC83F /* OilViewController.swift in Sources */,
+				740C0E6320D29D16005C5369 /* CarWashProtocol.swift in Sources */,
+				740C0E6720D2AED6005C5369 /* TestDropDownViewController.swift in Sources */,
 				7411241620D0034200271DC5 /* CarWashDetailsViewController.swift in Sources */,
+				16F9956F20D731170028EB5D /* Interval+Date.swift in Sources */,
 				166EE39620C822E900F9BA12 /* Validator.swift in Sources */,
 				1636ED2220B8F2FC00CFA5B7 /* updateCarListTableProtocol.swift in Sources */,
+				740C0E6520D29D78005C5369 /* RefuelProtocol.swift in Sources */,
 				16653B2D20B0098500765363 /* cardViewDesign.swift in Sources */,
 				1621F03720BAA74200CC4C9B /* PopupVC.swift in Sources */,
 				7413387F20C03FF60095D8DA /* Oil.swift in Sources */,
@@ -512,7 +560,7 @@
 				16653B3620B0155800765363 /* CarTrackingCell.swift in Sources */,
 				16D5302F20B8637B00BCA4BD /* UserProfileController.swift in Sources */,
 				16653B3D20B169F700765363 /* CarTItemDetailsViewController.swift in Sources */,
-				164292A820D1CF74008D0EAE /* StatisticsVC.swift in Sources */,
+				164292A820D1CF74008D0EAE /* StatisticsRefuelVC.swift in Sources */,
 				7411241820D0035800271DC5 /* RefuelDetailsViewController.swift in Sources */,
 				743E1AC420C405CF00CFDF57 /* HomeViewController.swift in Sources */,
 				1650EE0420B4524000C830FA /* CardViewController.swift in Sources */,
@@ -522,13 +570,17 @@
 				7413386B20C0217C0095D8DA /* CarDAO.swift in Sources */,
 				16BDC2ED20C6AAF200374774 /* registerTVC.swift in Sources */,
 				162856B520B007FE009124CC /* MyCarVersionTwo.xcdatamodeld in Sources */,
+				740C0E6920D535AD005C5369 /* CommonMethods.swift in Sources */,
 				7413388920C09DC60095D8DA /* UserDAO.swift in Sources */,
 				04B91B8320BECBD2003F60BB /* WebViewController.swift in Sources */,
+				16363E6F20D802C2006CEDED /* StatisticsOilVC.swift in Sources */,
 				0436B25F20BEAC17008D904B /* LoginViewController.swift in Sources */,
 				16A4A08320BB3CA500246A60 /* CarCardVC.swift in Sources */,
+				740C0E6120D28813005C5369 /* OilProtocol.swift in Sources */,
 				16653B4020B179BA00765363 /* CarListViewController.swift in Sources */,
 				16653B3420B0118500765363 /* CarTrackingViewController.swift in Sources */,
 				7413386F20C021DC0095D8DA /* RefuelDAO.swift in Sources */,
+				16F9956C20D714E60028EB5D /* StatisticsVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

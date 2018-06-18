@@ -9,11 +9,12 @@
 import UIKit
 import DTZFloatingActionButton
 
-class RefuelViewController: UIViewController , UITableViewDelegate , UITableViewDataSource{
+class RefuelViewController: UIViewController , UITableViewDelegate , UITableViewDataSource , RefuelProtocol{
     
     @IBOutlet weak var refuelsTableView: UITableView!
     
     lazy var floatingButton = DTZFloatingActionButton(frame:CGRect(x: view.frame.size.width - 40 - 20,y: view.frame.size.height - 40 - 60,width: 40,height: 40));
+    var refuelArr = Array<Refuel>();
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -25,9 +26,12 @@ class RefuelViewController: UIViewController , UITableViewDelegate , UITableView
         self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
     }
     
+    func addRefuelToCart(refuelObj: Refuel) {
+        refuelArr.append(refuelObj);
+        self.refuelsTableView.reloadData();
+    }
+    
     @objc func backHome(){
-        print("test")
-        //let homeVc = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! HomeViewController
         dismiss(animated: true, completion: nil)
     }
     
@@ -36,6 +40,7 @@ class RefuelViewController: UIViewController , UITableViewDelegate , UITableView
             button in
             print("add new refuel btn clicked");
             let refuelDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "refuelDetailsId") as! RefuelDetailsViewController;
+            refuelDetailsVC.myRefuelProtocol = self;
             self.navigationController?.pushViewController(refuelDetailsVC, animated: true);
         }
         floatingButton.isScrollView = true;
@@ -52,11 +57,18 @@ extension RefuelViewController {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4;
+        return refuelArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = refuelsTableView.dequeueReusableCell(withIdentifier: "refuelCell", for: indexPath);
+        let refuelDateLbl = cell.viewWithTag(1) as! UILabel
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: refuelArr[indexPath.row].date)
+        if let day = components.day, let month = components.month, let year = components.year {
+            refuelDateLbl.text = "\(day) / \(month) / \(year)"
+        }
+        let refuelPrice = cell.viewWithTag(2) as! UILabel
+        refuelPrice.text = String(refuelArr[indexPath.row].price)
         return cell;
     }
     

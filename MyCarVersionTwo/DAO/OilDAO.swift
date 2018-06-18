@@ -25,10 +25,9 @@ class OilDAO: NSObject {
     
     func insertNewOil(oilObj: Oil) {
         try! OilDAO.realm.write {
-            OilDAO.realm.add(oilObj);
+            OilDAO.realm.add(oilObj)
         }
         print("new Oil has been inserted into DB");
     }
     
-    //func getAllOilData(carId)
 }

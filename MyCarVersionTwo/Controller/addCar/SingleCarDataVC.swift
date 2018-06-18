@@ -22,6 +22,7 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
     //variables
     var singleCar : Car?
     var delegate : updateCarListTableProtocol?
+    let carInstance = CarDAO.getInstance()
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -50,6 +51,20 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         //singleCar?.image = UIImagePNGRepresentation(image)!
         carImgView.image =  image //UIImage(data:(singleCar?.image)!)
+        
+        
+        var imgData:Data?
+        let assetPath = info[UIImagePickerControllerReferenceURL] as! NSURL;
+        if (assetPath.absoluteString?.hasSuffix("JPG"))! {
+            print("JPG");
+            imgData = UIImageJPEGRepresentation(image, 1.0);
+        }
+        else if (assetPath.absoluteString?.hasSuffix("PNG"))! {
+            print("PNG");
+            imgData = UIImagePNGRepresentation(image)!;
+        }
+//        carInstance.saveCarPic(imgData: imgData!, carId: (singleCar?.id)!);
+        
         dismiss(animated: true, completion: nil)
     }
 
@@ -70,18 +85,17 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
         let newSingleCar = Car(carNameVal: carNameField.text!,
                                carModelVal: carModelField.text!,
                                carYearVal: carYearField.text!,
-                               carDescVal: carDescField.text,
-                               carImageVal: UIImagePNGRepresentation(carImgView.image!)!,
-                               carOwnerVal: userId)
-        https://github.com/SalmaHKamal/Zopa-iOSApp
+                               carDescVal: carDescField.text)
+        
         if let carvar = singleCar {
             newSingleCar.id = carvar.id
-            
+            newSingleCar.image = carvar.image
             //update car value in db
             CarDAO.getInstance().updateCar(newCarData: newSingleCar)
-            
         } else{
             CarDAO.getInstance().insertCar(carObj: newSingleCar)
+            let user_Obj = UserDAO.getInstance().getUserByID(userId: userId)
+            UserDAO.getInstance().addCarForUser(newCar: newSingleCar, userObj: user_Obj!)
             delegate?.updateTableValues(newCar: newSingleCar)
         }
         
