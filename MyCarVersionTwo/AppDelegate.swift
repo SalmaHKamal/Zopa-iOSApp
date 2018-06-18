@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        // get notification request
+        
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert , .badge , .sound], completionHandler: {(success , error) in
+            
+            if error == nil{
+                print("Notification allowed")
+            }else
+            {
+                print("Notification not allowed")
+            }
+        })
+        
         return true
     }
 
@@ -96,3 +112,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate : UNUserNotificationCenterDelegate{
+    
+    //for displaying notification when app is in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        print("in foreground method called ")
+        
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+    // For handling tap and user actions
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        print("entered did receive method")
+        
+        if response.notification.request.identifier == "SalmaNotification"{
+            print("SalmaNotification clicked")
+        }
+        //        switch response.actionIdentifier {
+        //        case "action1":
+        //            print("Action First Tapped")
+        //        case "action2":
+        //            print("Action Second Tapped")
+        //        default:
+        //            break
+        //        }
+        completionHandler()
+    }
+    
+}

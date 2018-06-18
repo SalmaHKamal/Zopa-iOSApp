@@ -9,6 +9,7 @@
 import UIKit
 import UIDropDown
 import Dropdowns
+import UserNotifications
 
 class OilDetailsViewController: UIViewController {
 
@@ -24,6 +25,7 @@ class OilDetailsViewController: UIViewController {
     var selectedOilDate : Date = Date()
     var dateFlag = false
     let loggedUserId = CommonMethods.getloggedInUserId()
+    var dateComponent = DateComponents()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +54,10 @@ class OilDetailsViewController: UIViewController {
         if dateFlag {
             oil = Oil(oilTypeVal: oilType.text!, numOfKmVal: NSString(string: distance.text!).doubleValue, oilPriceVal: NSString(string: oilPrice.text!).doubleValue, dateVal: selectedOilDate)
             myOilProtocol?.addOilToCart(oilObj: oil!)
+            
+            
+            //NOTIFICATION
+            showNotification()
         } else {
             self.view.makeToast("must choose a date", duration: 3.0, position: .bottom)
             return
@@ -66,8 +72,47 @@ class OilDetailsViewController: UIViewController {
             = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         if let day = components.day, let month = components.month, let year = components.year {
             print("oil date: \(day) \(month) \(year)")
+            dateComponent.day = day
+            dateComponent.month = month
+            dateComponent.year = year
+            dateComponent.hour = 23
+            dateComponent.minute = 0
             selectedDateVal.text = "\(day) / \(month) / \(year)"
         }
     }
+    
+    func showNotification(){
+        
+        print("notification called")
+        let content = UNMutableNotificationContent()
+        content.title = "notification"
+        content.body = "This is a time to refuel"
+        content.badge = 1
+        content.sound = UNNotificationSound.default()
+        
+        //let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: false)
+        let request = UNNotificationRequest(identifier: "SalmaNotification", content: content, trigger: trigger)
+        
+        //actions defination
+//        let action1 = UNNotificationAction(identifier: "action1", title: "Action First", options: [.foreground])
+//        let action2 = UNNotificationAction(identifier: "action2", title: "Action Second", options: [.foreground])
+//
+//        let category = UNNotificationCategory(identifier: "actionCategory", actions: [action1,action2], intentIdentifiers: [], options: [])
+//
+//        UNUserNotificationCenter.current().setNotificationCategories([category])
+        //
+        UNUserNotificationCenter.current().add(request, withCompletionHandler:
+            {(error) in
+                
+                if error != nil {
+                    print(error?.localizedDescription)
+                }
+        }
+        )
+    }
 
 }
+
+
