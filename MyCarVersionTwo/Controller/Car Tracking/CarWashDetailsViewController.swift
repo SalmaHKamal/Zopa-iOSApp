@@ -25,6 +25,8 @@ class CarWashDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "save", style: UIBarButtonItemStyle.done, target: self, action: #selector(save)), animated: true)
+        
+        carWashDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     }
     
     @objc func save(){
@@ -39,7 +41,6 @@ class CarWashDetailsViewController: UIViewController {
             return
         }
         
-        carWashDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         if dateFlag {
             carWash = CarWash(washingPlaceVal: carWashPlace.text!, washingPriceVal: NSString(string: wash_price).doubleValue, washingDateVal: selectedOilDate)
             myCarWashProtocol?.addCarWashToCart(carWashObj: carWash!)

@@ -29,6 +29,8 @@ class OilDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "save", style: UIBarButtonItemStyle.done, target: self, action: #selector(save)), animated: true)
+        
+        oilDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     }
     
     @objc func save(){
@@ -47,7 +49,6 @@ class OilDetailsViewController: UIViewController {
             return
         }
        
-        oilDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         if dateFlag {
             oil = Oil(oilTypeVal: oilType.text!, numOfKmVal: NSString(string: distance.text!).doubleValue, oilPriceVal: NSString(string: oilPrice.text!).doubleValue, dateVal: selectedOilDate)
             myOilProtocol?.addOilToCart(oilObj: oil!)

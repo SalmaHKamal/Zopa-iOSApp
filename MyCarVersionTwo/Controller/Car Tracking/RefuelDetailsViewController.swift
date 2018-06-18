@@ -28,6 +28,7 @@ class RefuelDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "save", style: UIBarButtonItemStyle.done, target: self, action: #selector(save)), animated: true)
+        refuelDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     }
 
     @objc func save(){
@@ -50,7 +51,7 @@ class RefuelDetailsViewController: UIViewController {
             return
         }
         
-        refuelDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        
         if dateFlag {
             refuel = Refuel(refuelingTypeVal: refuelType.text!, refuelingDateVal: selectedOilDate, refuelingPriceVal: NSString(string: refuel_price).doubleValue, refuelingPlaceVal: refuelPlace.text!, extraNotesVal: refuelExtraNotes.text!, refuelAmount: NSString(string: refuel_amount).doubleValue)
             myRefuelProtocol?.addRefuelToCart(refuelObj: refuel!)
