@@ -11,12 +11,17 @@ import RealmSwift
 
 class Refuel: Object {
 
+    @objc dynamic var id = UUID().uuidString
     @objc dynamic var type = "";
     @objc dynamic var date = Date();
     @objc dynamic var price = 0.0;
     @objc dynamic var place = "";
     @objc dynamic var extraNotes = "";
     @objc dynamic var amount = 0.0;
+    
+    override static func primaryKey() -> String? {
+        return "id";
+    }
     
     convenience init (refuelingTypeVal: String, refuelingDateVal: Date, refuelingPriceVal: Double, refuelingPlaceVal: String, extraNotesVal: String, refuelAmount: Double) {
         

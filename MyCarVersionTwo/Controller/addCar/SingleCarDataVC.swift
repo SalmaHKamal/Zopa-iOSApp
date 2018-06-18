@@ -23,6 +23,7 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
     var singleCar : Car?
     var delegate : updateCarListTableProtocol?
     let carInstance = CarDAO.getInstance()
+    var imgData:Data?
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -33,8 +34,8 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
         
         if let car = singleCar {
             
-            let img = UIImage(data : (car.image))
-            carImgView.image = img
+            let image = UIImage(data : (car.image))
+            carImgView.image = image
             carNameField.text = car.name
             carModelField.text = car.model
             carYearField.text = car.year
@@ -49,11 +50,8 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
     func imagePickerController(_ picker : UIImagePickerController , didFinishPickingMediaWithInfo info: [String : Any]){
 
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        //singleCar?.image = UIImagePNGRepresentation(image)!
-        carImgView.image =  image //UIImage(data:(singleCar?.image)!)
+        carImgView.image =  image 
         
-        
-        var imgData:Data?
         let assetPath = info[UIImagePickerControllerReferenceURL] as! NSURL;
         if (assetPath.absoluteString?.hasSuffix("JPG"))! {
             print("JPG");
@@ -63,8 +61,7 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
             print("PNG");
             imgData = UIImagePNGRepresentation(image)!;
         }
-        carInstance.saveCarPic(imgData: imgData!, carId: (singleCar?.id)!);
-        
+    
         dismiss(animated: true, completion: nil)
     }
 
@@ -86,14 +83,17 @@ class SingleCarDataVC: UITableViewController , UIImagePickerControllerDelegate ,
                                carModelVal: carModelField.text!,
                                carYearVal: carYearField.text!,
                                carDescVal: carDescField.text)
-        
-        
+        if let newimgData = imgData{
+            newSingleCar.image = newimgData
+        }
         if let carvar = singleCar {
             newSingleCar.id = carvar.id
-            newSingleCar.image = carvar.image
             //update car value in db
             CarDAO.getInstance().updateCar(newCarData: newSingleCar)
         } else{
+            if let newimgData = imgData{
+                newSingleCar.image = newimgData
+            }
             CarDAO.getInstance().insertCar(carObj: newSingleCar)
             let user_Obj = UserDAO.getInstance().getUserByID(userId: userId)
             UserDAO.getInstance().addCarForUser(newCar: newSingleCar, userObj: user_Obj!)

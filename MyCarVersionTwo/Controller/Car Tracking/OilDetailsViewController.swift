@@ -20,7 +20,9 @@ class OilDetailsViewController: UIViewController {
     
     let oilInstance = OilDAO.getInstance();
     var myOilProtocol: OilProtocol?
-    let oil = Oil()
+    var oil : Oil?
+    var selectedOilDate : Date = Date()
+    var dateFlag = false
     let loggedUserId = CommonMethods.getloggedInUserId()
     
     override func viewDidLoad() {
@@ -44,20 +46,23 @@ class OilDetailsViewController: UIViewController {
             self.view.makeToast("enter oil distance", duration: 3.0, position: .bottom)
             return
         }
-        
-        oil.type = oil_type
-        oil.price = NSString(string: oil_price).doubleValue
-        oil.numOfKm = NSString(string: oil_distance).doubleValue
+       
         oilDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
-        
-        oilInstance.insertNewOil(oilObj: oil)
-        myOilProtocol?.addOilToCart(oilObj: oil)
+        if dateFlag {
+            oil = Oil(oilTypeVal: oilType.text!, numOfKmVal: NSString(string: distance.text!).doubleValue, oilPriceVal: NSString(string: oilPrice.text!).doubleValue, dateVal: selectedOilDate)
+            myOilProtocol?.addOilToCart(oilObj: oil!)
+        } else {
+            self.view.makeToast("must choose a date", duration: 3.0, position: .bottom)
+            return
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc func dateChanged(_ sender: UIDatePicker) {
-        oil.date = sender.date
-        let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
+        dateFlag = true
+        selectedOilDate = sender.date
+        let components 
+            = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         if let day = components.day, let month = components.month, let year = components.year {
             print("oil date: \(day) \(month) \(year)")
             selectedDateVal.text = "\(day) / \(month) / \(year)"

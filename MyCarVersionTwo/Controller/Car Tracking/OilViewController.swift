@@ -20,6 +20,9 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
     var selectedCar: Car?
     var cars : [Car] = [Car]()
     let userInstance = UserDAO.getInstance()
+    let oilInstance = OilDAO.getInstance()
+    let carInstance = CarDAO.getInstance()
+    var carChosenFlag = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +37,17 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         let userObj: User = userInstance.getUserByID(userId: CommonMethods.getloggedInUserId())!
         cars.append(contentsOf: userObj.cars)
         print("cars count in oilView: \(cars.count)")
-        drawCarDropDownList()
+        if cars.count == 0 {
+            self.title = "Sorry, You Should Add Car First!"
+        } else {
+            drawCarDropDownList()
+        }
     }
     
     func addOilToCart(oilObj: Oil) {
-        oilArr.append(oilObj);
+        oilInstance.insertNewOil(oilObj: oilObj)
+        carInstance.updateCarOilsList(carObj: selectedCar!, oilObj: oilObj)
+        oilArr.append(oilObj)
         self.myTableView.reloadData();
     }
     
@@ -52,23 +61,21 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         self.myTableView.backgroundView = imageView
     }
 
-    func displayCarMenu(){
-        let items = ["World", "Sports", "Culture", "Business", "Travel"]// car from daos
-        let titleView = TitleView(navigationController: navigationController!, title: "Car", items: items)
-        titleView?.action = { [weak self] index in
-            print("select \(index)")
-        }
-        
-        navigationItem.titleView = titleView
-    }
-    
     func addFloatingBtn(){
         floatingButton.handler = {
             button in
             print("add new oil btn clicked");
-            let oilDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "oilDetailsId") as! OilDetailsViewController;
-            oilDetailsVC.myOilProtocol = self;
-            self.navigationController?.pushViewController(oilDetailsVC, animated: true);
+            print("carChosenFlag: \(self.carChosenFlag)")
+            if self.carChosenFlag == false {
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil);
+                let alertActions = [okAction];
+                CommonMethods.showAlert(base: self, actions: alertActions, alertTitle: "Not Allowed", alertMsg: "You must choose a car first")
+            }
+            else {
+                let oilDetailsVC = self.storyboard?.instantiateViewController(withIdentifier: "oilDetailsId") as! OilDetailsViewController;
+                oilDetailsVC.myOilProtocol = self;
+                self.navigationController?.pushViewController(oilDetailsVC, animated: true);
+            }
         }
         floatingButton.isScrollView = true;
         floatingButton.buttonColor = UIColor.purple;
@@ -83,7 +90,11 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         let titleView = TitleView(navigationController: navigationController!, title: "choose car", items: items)
         titleView?.action = { [weak self] index in
             print("select \(index)")
+            self?.carChosenFlag = true
             self?.selectedCar = (self?.cars[index])!
+            self?.oilArr = Array((self?.selectedCar!.prevOils)!)
+            print("oils count\(Array((self?.selectedCar!.prevOils)!).count)")
+            self?.myTableView.reloadData()
         }
         navigationItem.titleView = titleView
     }

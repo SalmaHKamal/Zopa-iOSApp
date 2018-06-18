@@ -16,6 +16,7 @@ class Validator: NSObject {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: testStr)
     }
+    
     static func showAlert(withTitle:String, message:String, viewController:UIViewController) {
         let alertController = UIAlertController(title: withTitle, message: message, preferredStyle: UIAlertControllerStyle.alert) //Replace
         
@@ -26,7 +27,6 @@ class Validator: NSObject {
         }
         alertController.addAction(okAction)
         viewController.present(alertController, animated: true, completion: nil)
-        
     }
     
 }

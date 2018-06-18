@@ -41,12 +41,18 @@ class HomeViewController: UIViewController {
     
     @IBAction func logoutAction(_ sender: UIButton) {
         print("in logout");
-        let userDef = UserDefaults.standard;
-        userDef.removeObject(forKey: "userId");
-        let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginVC");
-        self.present(loginView!, animated: true, completion: nil);
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { action in
+            print("Ok")
+            let userDef = UserDefaults.standard;
+            userDef.removeObject(forKey: "userId");
+            let loginView = self.storyboard?.instantiateViewController(withIdentifier: "loginVC");
+            self.present(loginView!, animated: true, completion: nil);
+        });
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil);
+        let alertActions = [okAction, cancelAction];
+        
+        CommonMethods.showAlert(base: self, actions: alertActions , alertTitle: "Logout", alertMsg: "Are you sure you want to logout ?")
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,8 +63,6 @@ class HomeViewController: UIViewController {
         
         let gesture = UITapGestureRecognizer(target: self, action: "wholeViewAction:");
         self.wholeView.addGestureRecognizer(gesture);
-        
-        
     }
 
     @objc func wholeViewAction(_ sender:UITapGestureRecognizer) {

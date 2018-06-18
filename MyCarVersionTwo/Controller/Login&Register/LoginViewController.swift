@@ -43,10 +43,10 @@ class LoginViewController: UIViewController {
             saveInUserDefaults()
             goToHome()
         }else{
-            print("not allowed")
-            let alert = UIAlertController(title: "Not Alowed ", message: "check you name and password and login again", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true,completion: nil)
+            print("not allowed login")
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil);
+            let alertActions = [okAction];
+            CommonMethods.showAlert(base: self, actions: alertActions, alertTitle: "Not Allowed", alertMsg: "check you name and password and login again");
         }
     }
     

@@ -76,11 +76,46 @@ class CarDAO: NSObject {
        
         try! CarDAO.realm.write {
             CarDAO.realm.add(newCarData, update: true)
-//            car = newCarData
         }
         
         print("update car values")
         print("===> \(String(describing: CarDAO.realm.object(ofType: Car.self, forPrimaryKey: newCarData.id)))")
+    }
+    
+    func updateCarOilsList(carObj : Car, oilObj : Oil){
+        print("in oil obj update method")
+        
+        try! CarDAO.realm.write {
+            carObj.prevOils.append(oilObj);
+            CarDAO.realm.add(carObj, update: true)
+        }
+        
+        print("update car values")
+        print("===> \(String(describing: CarDAO.realm.object(ofType: Car.self, forPrimaryKey: carObj.id)))")
+    }
+    
+    func updateCarWashsList(carObj : Car, carWashObj : CarWash){
+        print("in carWash obj update method")
+        
+        try! CarDAO.realm.write {
+            carObj.prevCarWashings.append(carWashObj);
+            CarDAO.realm.add(carObj, update: true)
+        }
+        
+        print("update car values")
+        print("===> \(String(describing: CarDAO.realm.object(ofType: Car.self, forPrimaryKey: carObj.id)))")
+    }
+    
+    func updateCarRefuelsList(carObj : Car, carRefuelObj : Refuel){
+        print("in refuel obj update method")
+        
+        try! CarDAO.realm.write {
+            carObj.prevRefuels.append(carRefuelObj);
+            CarDAO.realm.add(carObj, update: true)
+        }
+        
+        print("update car values")
+        print("===> \(String(describing: CarDAO.realm.object(ofType: Car.self, forPrimaryKey: carObj.id)))")
     }
     
     func test(){
