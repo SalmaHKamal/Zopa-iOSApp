@@ -17,11 +17,13 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
     
     lazy var floatingButton = DTZFloatingActionButton(frame:CGRect(x: view.frame.size.width - 40 - 20,y: view.frame.size.height - 40 - 60,width: 40,height: 40));
     var oilArr = Array<Oil>();
+    var selectedCar: Car?
+    var cars : [Car] = [Car]()
+    let userInstance = UserDAO.getInstance()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //displayCarMenu()
         addFloatingBtn();
         myTableView.separatorStyle = UITableViewCellSeparatorStyle.none;
         
@@ -29,6 +31,10 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         let backImg = UIImage(named: "back");
         self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
         
+        let userObj: User = userInstance.getUserByID(userId: CommonMethods.getloggedInUserId())!
+        cars.append(contentsOf: userObj.cars)
+        print("cars count in oilView: \(cars.count)")
+        drawCarDropDownList()
     }
     
     func addOilToCart(oilObj: Oil) {
@@ -67,6 +73,19 @@ class OilViewController: UIViewController , UITableViewDelegate , UITableViewDat
         floatingButton.isScrollView = true;
         floatingButton.buttonColor = UIColor.purple;
         self.view.addSubview(floatingButton);
+    }
+    
+    func drawCarDropDownList(){
+        var items : [String] = [String]()
+        for car in cars {
+            items.append(car.name)
+        }
+        let titleView = TitleView(navigationController: navigationController!, title: "choose car", items: items)
+        titleView?.action = { [weak self] index in
+            print("select \(index)")
+            self?.selectedCar = (self?.cars[index])!
+        }
+        navigationItem.titleView = titleView
     }
 }
 

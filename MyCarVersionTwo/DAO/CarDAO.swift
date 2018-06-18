@@ -30,13 +30,13 @@ class CarDAO: NSObject {
         print("Car has been inserted into DB");
     }
     
-    //--------
+    /*
     func getAllCars(userID : String) -> [Car]{
         let results : Results<Car> = CarDAO.realm.objects(Car.self).filter("owner = %@ " , userID)
         let resArray : [Car] = Array(results)
         
         return resArray
-    }
+    }*/
     
     //---------
     func getCarByID(carId : String , userId : String) -> Car {

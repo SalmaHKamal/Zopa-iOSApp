@@ -17,10 +17,10 @@ class CommonMethods: NSObject {
         return userDef.value(forKey: "userId") as! String
     }
     
-    class func getAllCarsForUser() -> [Car] {
+    /*class func getAllCarsForUser() -> [Car] {
         let userId = CommonMethods.getloggedInUserId()
         cars = CarDAO.getInstance().getAllCars(userID: userId)
         return cars
-    }
+    }*/
     
 }
