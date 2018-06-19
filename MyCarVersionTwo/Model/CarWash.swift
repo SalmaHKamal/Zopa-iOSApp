@@ -11,9 +11,14 @@ import RealmSwift
 
 class CarWash: Object {
 
+    @objc dynamic var id = UUID().uuidString
     @objc dynamic var washingPlace = "";
     @objc dynamic var washingPrice = 0.0;
     @objc dynamic var washingDate = Date();
+    
+    override static func primaryKey() -> String? {
+        return "id";
+    }
     
     convenience init (washingPlaceVal: String, washingPriceVal: Double, washingDateVal: Date) {
         

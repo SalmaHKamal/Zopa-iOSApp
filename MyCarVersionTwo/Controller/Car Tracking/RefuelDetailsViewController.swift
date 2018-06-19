@@ -20,12 +20,15 @@ class RefuelDetailsViewController: UIViewController {
     
     let refuelInstance = RefuelDAO.getInstance();
     var myRefuelProtocol: RefuelProtocol?
-    let refuel = Refuel()
+    var refuel : Refuel?
     let loggedUserId = CommonMethods.getloggedInUserId()
+    var selectedOilDate : Date = Date()
+    var dateFlag = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "save", style: UIBarButtonItemStyle.done, target: self, action: #selector(save)), animated: true)
+        refuelDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     }
 
     @objc func save(){
@@ -48,23 +51,24 @@ class RefuelDetailsViewController: UIViewController {
             return
         }
         
-        refuel.type = refuel_type
-        refuel.price = NSString(string: refuel_price).doubleValue
-        refuel.amount = NSString(string: refuel_amount).doubleValue
-        refuel.place = refuel_place
-        refuelDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         
-        refuelInstance.insertRefuelData(refuelObj: refuel)
-        myRefuelProtocol?.addRefuelToCart(refuelObj: refuel)
+        if dateFlag {
+            refuel = Refuel(refuelingTypeVal: refuelType.text!, refuelingDateVal: selectedOilDate, refuelingPriceVal: NSString(string: refuel_price).doubleValue, refuelingPlaceVal: refuelPlace.text!, extraNotesVal: refuelExtraNotes.text!, refuelAmount: NSString(string: refuel_amount).doubleValue)
+            myRefuelProtocol?.addRefuelToCart(refuelObj: refuel!)
+        } else {
+            self.view.makeToast("must choose a date", duration: 3.0, position: .bottom)
+            return
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc func dateChanged(_ sender: UIDatePicker) {
-        print("ggggggggggggg")
-        refuel.date = sender.date
+        print("refuel date changed")
+        dateFlag = true
+        selectedOilDate = sender.date
         let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         if let day = components.day, let month = components.month, let year = components.year {
-            print("refuel date: \(day) \(month) \(year)")
+            print("oil date: \(day) \(month) \(year)")
             selectedDateVal.text = "\(day) / \(month) / \(year)"
         }
     }

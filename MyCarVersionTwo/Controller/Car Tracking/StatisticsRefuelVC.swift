@@ -8,7 +8,6 @@
 
 import UIKit
 import Charts
-import UIDropDown
 import Dropdowns
 
 class StatisticsRefuelVC: UIViewController , IAxisValueFormatter{
@@ -18,9 +17,6 @@ class StatisticsRefuelVC: UIViewController , IAxisValueFormatter{
     @IBOutlet weak var avgConsumption: UILabel!
     @IBOutlet weak var carName: UILabel!
     @IBOutlet weak var lineChartView: BarChartView!
-//    @IBOutlet weak var pieChartView: PieChartView!
-//    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-//    let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
     let statisticVM = StatisticsVM.shared
     
     var refDates : [String]?
@@ -30,18 +26,24 @@ class StatisticsRefuelVC: UIViewController , IAxisValueFormatter{
     var selectedFlag : Bool = false
     var noCarsFlag : Bool = false
     var cars = [Car]()
+    var logedUser : User?
+    var backImg = UIImage(named: "back")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("from statistics did load")
         setupChartNoData()
         print("after setup chart")
-        cars = CommonMethods.getAllCarsForUser()
+        logedUser = UserDAO.getInstance().getUserByID(userId: CommonMethods.getloggedInUserId())
+        cars = Array((logedUser?.cars)!)
         print("after get cars")
         //the entry point for the whole code
         drawDropDownList()
         print("after dropdown")
-        
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
+    }
+    @objc func backHome(){
+        dismiss(animated: true, completion: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         if !statisticVM.selectCarFlag {
@@ -53,6 +55,7 @@ class StatisticsRefuelVC: UIViewController , IAxisValueFormatter{
             self.refAmount = refData.2
             self.setChart(dataPoints: self.refDates!, values: (self.refAmount!))
             self.setupOutlets()
+            
         }
     }
     func setupOutlets()  {
@@ -77,14 +80,15 @@ extension StatisticsRefuelVC{
     func setChart(dataPoints: [String], values: [Double]) {
         var dataEntries: [BarChartDataEntry] = []
         
-        for i in 0...dataPoints.count-1 {
+        for i in 0...dataPoints.count - 1 {
             let dataEntry = BarChartDataEntry(x: Double(i), y: values[i] , data: refDates  as AnyObject)
             dataEntries.append(dataEntry)
         }
         let barChartDataSet = BarChartDataSet(values: dataEntries, label: "Amounts")
         let barChartData = BarChartData(dataSet: barChartDataSet)
-        //            lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
+        
         lineChartView.xAxis.valueFormatter = self
+        lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         lineChartView.data = barChartData
     }
 }
@@ -97,6 +101,7 @@ extension StatisticsRefuelVC{
             for i in cars {
                 items.append(i.name)
             }
+            print("from draw dropdown fuel \(cars.count)")
         }
         else {
             items.append("")
@@ -106,7 +111,9 @@ extension StatisticsRefuelVC{
         let titleView = TitleView(navigationController: navigationController!, title: "choose car", items: items)
         if noCarsFlag {
             self.title = "add cars first"
+            return
         }else{
+            self.statisticVM.selectCarFlag = false
             titleView?.action = { [weak self] index in
                 print("selected index is : \(index)")
                 self?.statisticVM.setSelectedCar(selectedCarIndex: index)
@@ -114,10 +121,15 @@ extension StatisticsRefuelVC{
                 self?.refDates = refData?.0
                 self?.refPrices = refData?.1
                 self?.refAmount = refData?.2
-                self?.setChart(dataPoints: (self?.refDates!)!, values: (self?.refPrices!)!)
-                self?.setupOutlets()
-                self?.selectedFlag = true
-                self?.statisticVM.selectCarFlag = true
+                if (self?.refPrices?.count) != 0{
+                    self?.setChart(dataPoints: (self?.refDates!)!, values: (self?.refPrices!)!)
+                    print("test dates \((self?.refDates!)!)")
+                    self?.setupOutlets()
+                    self?.selectedFlag = true
+                    self?.statisticVM.selectCarFlag = true
+                }
+                self?.carName.text = (self?.statisticVM.selectedCar?.name)!+" Refuel Statistics"
+                
             }
         }
         navigationItem.titleView = titleView
@@ -148,8 +160,10 @@ extension StatisticsRefuelVC{
     func calcDateDiff()-> Double{
         let dateFormatter = DateFormatter()
         let currentDate = Date()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        guard let lastDate = dateFormatter.date(from: (refDates?[0])!) else {
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        dateFormatter.locale = Locale.init(identifier: "en_GB")
+        print("date format \((refDates![0]))")
+        guard let lastDate = dateFormatter.date(from: refDates![0]) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
         let diff = currentDate.interval(ofComponent: .day, fromDate: lastDate)
@@ -166,40 +180,4 @@ extension StatisticsRefuelVC{
    
 }
 
-extension StatisticsRefuelVC{
-   
-//
-//    func setChart(dataPoints: [String], values: [Double]) {
-//
-//        var dataEntries: [PieChartDataEntry] = []
-//
-//        for i in 0..<dataPoints.count {
-//            let dataEntry = PieChartDataEntry(value: 0)
-//
-//             = values[i]
-//            dataEntrydataEntry.value.label = dataPoints[i]
-//            dataEntries.append(dataEntry)
-//        }
-//        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Units Sold")
-//        let pieChartData = PieChartData(dataSet: pieChartDataSet)
-//        pieChartView.data = pieChartData
-//
-//        var colors: [UIColor] = []
-//        for i in 0..<dataPoints.count {
-//            let red = Double(arc4random_uniform(256))
-//            let green = Double(arc4random_uniform(256))
-//            let blue = Double(arc4random_uniform(256))
-//            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-//            colors.append(color)
-//        }
-//        pieChartDataSet.colors = colors
-//        let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Units Sold")
-//        //        let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
-//        let lineChartData = LineChartData(dataSet: lineChartDataSet)
-//        lineChartView.data = lineChartData
-//
-//    }
-    
-    
-}
 

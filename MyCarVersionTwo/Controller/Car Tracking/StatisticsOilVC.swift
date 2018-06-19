@@ -26,28 +26,23 @@ class StatisticsOilVC: UIViewController , IAxisValueFormatter {
     var selectedFlag : Bool = false
     var noCarsFlag : Bool = false
     var cars = [Car]()
-    
+    var logedUser : User?
+    var backImg = UIImage(named: "back")
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("from OIL statistics did load")
         setupChartNoData()
-        print("after OIL setup chart")
-        cars = CommonMethods.getAllCarsForUser()
-        print("after OIL get cars")
+        logedUser = UserDAO.getInstance().getUserByID(userId: CommonMethods.getloggedInUserId())
+        cars = Array((logedUser?.cars)!)
         //the entry point for the whole code
         drawDropDownList()
-        print("after OIL dropdown")
-        
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
+    }
+    @objc func backHome(){
+        dismiss(animated: true, completion: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         if !statisticVM.selectCarFlag {
             carName.text = "you need to select car first"
-        }else{
-            let oilData = self.statisticVM.getOilDatesAndPrice()
-            self.oilDates = oilData.0
-            self.oilPrices = oilData.1
-            self.setChart(dataPoints: (self.oilDates!), values: (self.oilPrices!))
-            self.setupOutlets()
         }
         
     }
@@ -79,8 +74,8 @@ extension StatisticsOilVC{
         }
         let barChartDataSet = BarChartDataSet(values: dataEntries, label: "Prices")
         let barChartData = BarChartData(dataSet: barChartDataSet)
-        //            lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: months)
         lineChartView.xAxis.valueFormatter = self
+        lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         lineChartView.data = barChartData
     }
 }
@@ -102,17 +97,23 @@ extension StatisticsOilVC{
         let titleView = TitleView(navigationController: navigationController!, title: "choose car", items: items)
         if noCarsFlag {
             self.title = "add cars first"
+            return
         }else{
+            self.statisticVM.selectCarFlag = false
             titleView?.action = { [weak self] index in
                 print("selected index is : \(index)")
                 self?.statisticVM.setSelectedCar(selectedCarIndex: index)
-                let oilData = self?.statisticVM.getRefeulDatesAndPrice()
+                let oilData = self?.statisticVM.getOilDatesAndPrice()
                 self?.oilDates = oilData?.0
                 self?.oilPrices = oilData?.1
-                self?.setChart(dataPoints: (self?.oilDates!)!, values: (self?.oilPrices!)!)
-                self?.setupOutlets()
-                self?.selectedFlag = true
-                self?.statisticVM.selectCarFlag = true
+                if (self?.oilPrices?.count) != 0{
+                        self?.setChart(dataPoints: (self?.oilDates!)!, values: (self?.oilPrices!)!)
+                        self?.setupOutlets()
+                        self?.selectedFlag = true
+                        self?.statisticVM.selectCarFlag = true
+                    }
+                self?.carName.text = (self?.statisticVM.selectedCar?.name)!+" Oil Statistics"
+
             }
         }
         navigationItem.titleView = titleView
@@ -139,7 +140,8 @@ extension StatisticsOilVC{
     func calcDateDiff()-> Double{
         let dateFormatter = DateFormatter()
         let currentDate = Date()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        dateFormatter.locale = Locale.init(identifier: "en_GB")
         guard let lastDate = dateFormatter.date(from: (oilDates?[0])!) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
@@ -153,6 +155,3 @@ extension StatisticsOilVC{
     
 }
 
-extension StatisticsOilVC {
-    
-}

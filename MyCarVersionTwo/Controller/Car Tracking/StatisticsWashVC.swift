@@ -27,28 +27,24 @@ class StatisticsWashVC: UIViewController , IAxisValueFormatter {
     var selectedFlag : Bool = false
     var noCarsFlag : Bool = false
     var cars = [Car]()
+    var logedUser : User?
+    var backImg = UIImage(named: "back")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("from statistics did load")
         setupChartNoData()
-        print("after setup chart")
-        cars = CommonMethods.getAllCarsForUser()
-        print("after get cars")
+        logedUser = UserDAO.getInstance().getUserByID(userId: CommonMethods.getloggedInUserId())
+        cars = Array((logedUser?.cars)!)
         //the entry point for the whole code
         drawDropDownList()
-        print("after dropdown")
-        
+        self.navigationItem.setLeftBarButton(UIBarButtonItem(image: backImg, style: UIBarButtonItemStyle.done, target: self, action: #selector(backHome)), animated: true)
+    }
+    @objc func backHome(){
+        dismiss(animated: true, completion: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         if !statisticVM.selectCarFlag {
             carName.text = "you need to select car first"
-        }else{
-            let washData = self.statisticVM.getRefeulDatesAndPrice()
-            self.washDates = washData.0
-            self.washPrices = washData.1
-            self.setChart(dataPoints: (self.washDates!), values: (self.washPrices!))
-            self.setupOutlets()
         }
     }
     func setupOutlets()  {
@@ -80,6 +76,7 @@ extension StatisticsWashVC{
         let barChartDataSet = BarChartDataSet(values: dataEntries, label: "Prices")
         let barChartData = BarChartData(dataSet: barChartDataSet)
         lineChartView.xAxis.valueFormatter = self
+        lineChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         lineChartView.data = barChartData
     }
 }
@@ -96,22 +93,28 @@ extension StatisticsWashVC{
         else {
             items.append("")
             noCarsFlag = true
+            
         }
         
         let titleView = TitleView(navigationController: navigationController!, title: "choose car", items: items)
         if noCarsFlag {
             self.title = "add cars first"
+            return
         }else{
+            self.statisticVM.selectCarFlag = false
             titleView?.action = { [weak self] index in
                 print("selected index is : \(index)")
                 self?.statisticVM.setSelectedCar(selectedCarIndex: index)
-                let washData = self?.statisticVM.getRefeulDatesAndPrice()
+                let washData = self?.statisticVM.getWashDatesAndPrice()
                 self?.washDates = washData?.0
                 self?.washPrices = washData?.1
-                self?.setChart(dataPoints: (self?.washDates!)!, values: (self?.washPrices!)!)
-                self?.setupOutlets()
-                self?.selectedFlag = true
-                self?.statisticVM.selectCarFlag = true
+                if (self?.washPrices?.count) != 0{
+                    self?.setChart(dataPoints: (self?.washDates!)!, values: (self?.washPrices!)!)
+                    self?.setupOutlets()
+                    self?.selectedFlag = true
+                    self?.statisticVM.selectCarFlag = true
+                }
+                self?.carName.text = (self?.statisticVM.selectedCar?.name)!+" Wash Statistics"
             }
         }
         navigationItem.titleView = titleView
@@ -136,7 +139,8 @@ extension StatisticsWashVC{
     func calcDateDiff()-> Double{
         let dateFormatter = DateFormatter()
         let currentDate = Date()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        dateFormatter.locale = Locale.init(identifier: "en_GB")
         guard let lastDate = dateFormatter.date(from: (washDates?[0])!) else {
             fatalError("ERROR: Date conversion failed due to mismatched format.")
         }
@@ -151,6 +155,3 @@ extension StatisticsWashVC{
     
 }
 
-extension StatisticsWashVC{
-    
-}

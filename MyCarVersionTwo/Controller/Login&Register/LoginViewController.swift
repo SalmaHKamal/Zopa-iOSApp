@@ -11,6 +11,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     
     var ifExist : String?
+    let  userDefaults = UserDefaults.standard
     
     @IBAction func registerAction(_ sender: Any) {
         let registerVC = self.storyboard?.instantiateViewController(withIdentifier: "registerVC")
@@ -35,6 +36,9 @@ class LoginViewController: UIViewController {
         }
         
         ifExist = UserDAO.getInstance().isUser(email: emailTxt.text!, password: passwordTxt.text!)
+     
+        
+//        ifExist = userDefaults.object(forKey: "userId")
         
         print("after exist")
         
@@ -43,10 +47,10 @@ class LoginViewController: UIViewController {
             saveInUserDefaults()
             goToHome()
         }else{
-            print("not allowed")
-            let alert = UIAlertController(title: "Not Alowed ", message: "check you name and password and login again", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true,completion: nil)
+            print("not allowed login")
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil);
+            let alertActions = [okAction];
+            CommonMethods.showAlert(base: self, actions: alertActions, alertTitle: "Not Allowed", alertMsg: "check you name and password and login again");
         }
     }
     
@@ -56,8 +60,7 @@ class LoginViewController: UIViewController {
     }
     
     func saveInUserDefaults(){
-        
-        let userDefaults = UserDefaults.standard
+    
         userDefaults.setValue(self.ifExist, forKeyPath: "userId")
         userDefaults.setValue(true, forKeyPath: "isLoggedIn")
         

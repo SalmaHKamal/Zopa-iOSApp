@@ -17,12 +17,16 @@ class CarWashDetailsViewController: UIViewController {
     
     let carWashInstance = CarWashDAO.getInstance();
     var myCarWashProtocol: CarWashProtocol?
-    let carWash = CarWash()
+    var carWash : CarWash?
     let loggedUserId = CommonMethods.getloggedInUserId()
+    var selectedOilDate : Date = Date()
+    var dateFlag = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setRightBarButton(UIBarButtonItem(title: "save", style: UIBarButtonItemStyle.done, target: self, action: #selector(save)), animated: true)
+        
+        carWashDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     }
     
     @objc func save(){
@@ -37,20 +41,24 @@ class CarWashDetailsViewController: UIViewController {
             return
         }
         
-        carWash.washingPlace = wash_place
-        carWash.washingPrice = NSString(string: wash_price).doubleValue
-        carWashDate.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
-        
-        carWashInstance.insertCarWashData(carWashObj: carWash)
-        myCarWashProtocol?.addCarWashToCart(carWashObj: carWash)
+        if dateFlag {
+            carWash = CarWash(washingPlaceVal: carWashPlace.text!, washingPriceVal: NSString(string: wash_price).doubleValue, washingDateVal: selectedOilDate)
+            myCarWashProtocol?.addCarWashToCart(carWashObj: carWash!)
+        } else {
+            print("in date test 1")
+            self.view.makeToast("must choose a date", duration: 3.0, position: .center)
+            return
+        }
         self.navigationController?.popViewController(animated: true)
     }
     
     @objc func dateChanged(_ sender: UIDatePicker) {
-        carWash.washingDate = sender.date
+        print("in date test 2")
+        dateFlag = true
+        selectedOilDate = sender.date
         let components = Calendar.current.dateComponents([.year, .month, .day], from: sender.date)
         if let day = components.day, let month = components.month, let year = components.year {
-            print("carWash date: \(day) \(month) \(year)")
+            print("oil date: \(day) \(month) \(year)")
             selectedDateVal.text = "\(day) / \(month) / \(year)"
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class CommonMethods: NSObject {
     
@@ -18,13 +19,16 @@ public class CommonMethods: NSObject {
         return userDef.value(forKey: "userId") as! String
     }
     
-    class func getAllCarsForUser() -> [Car] {
-        let userId = CommonMethods.getloggedInUserId()
-        let user = UserDAO.getInstance().getUserByID(userId: userId)
-        cars = Array((user?.cars)!)
-//        cars = CarDAO.getInstance().getAllCars(userID: userId)
-        print("cars count\(cars.count)")
-        return cars
+
+    class func showAlert(base: UIViewController, actions: [UIAlertAction], alertTitle: String, alertMsg: String) {
+        
+        let alert = UIAlertController(title: alertTitle, message: alertMsg, preferredStyle: UIAlertControllerStyle.alert)
+        
+        for action in actions {
+            alert.addAction(action)
+        }
+        
+        base.present(alert, animated: true, completion: nil)
     }
     
 }
